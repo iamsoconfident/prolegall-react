@@ -6,6 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  (function () {
+    const supported = ['ru','en','lt','az'];
+    const lang = localStorage.getItem('lang') || 'ru';
+    document.documentElement.setAttribute('lang', supported.includes(lang) ? lang : 'ru');
+  })();
+</script>
+
+    <script>
+  tailwind.config = { darkMode: 'class' }
+</script>
+<script>
+  (function () {
+    const ls = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (ls === 'dark' || (!ls && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
   </head>
   <body>
     <div id="root"></div>
