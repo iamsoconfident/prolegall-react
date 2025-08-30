@@ -24,6 +24,36 @@ import {
   Moon,
 } from "lucide-react";
 
+function setFavicon() {
+  // SVG that matches the header logo: purple→orange gradient + white scale
+  const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="10" y1="8" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C3AED"/>
+      <stop offset="0.55" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 12v22M20 20h24M20 50h24"/>
+    <path d="M26 20l-6 12M38 20l6 12"/>
+  </g>
+  <path d="M14 32h12l-6 8-6-8z" fill="#fff"/>
+  <path d="M38 32h12l-6 8-6-8z" fill="#fff"/>
+</svg>`;
+  const url = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+
+  let link = document.querySelector('link[rel="icon"]');
+  if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.head.appendChild(link);
+  }
+  link.href = url;
+}
+
 function useLang() {
   const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'en');
   useEffect(() => {
@@ -33,6 +63,7 @@ function useLang() {
   const t = (key, fallback) => (I18N[lang] && I18N[lang][key]) ?? fallback;
   return { lang, setLang, t };
 }
+  
 
 function LangSelect({ lang, setLang, className = "" }) {
   return (
@@ -1712,6 +1743,10 @@ export default function ProLegallApp() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [route]);
+
+  useEffect(() => {
+    setFavicon();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
