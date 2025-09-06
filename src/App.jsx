@@ -84,6 +84,139 @@ function LangSelect({ lang, setLang, className = "" }) {
   );
 }
 
+/* --- Blog illustrations (inline SVGs) --- */
+/* ===== Blog illustrations (clean & aligned) ===== */
+const BlogGrad = ({ id }) => (
+  <defs>
+    <linearGradient id={id} x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stopColor="#7C3AED" />
+      <stop offset="1" stopColor="#F97316" />
+    </linearGradient>
+  </defs>
+);
+
+/** All SVGs share the same box so they render identical size */
+const BOX_PROPS = {
+  viewBox: "0 0 160 100",
+  preserveAspectRatio: "xMidYMid meet",
+  role: "img",
+  "aria-hidden": "true",
+};
+
+// --- Blog posts (bilingual) ---
+const BLOGS = {
+  "startup-visa-lithuania": {
+    en: {
+      title: "Lithuania’s Startup Visa: an entry point for non-EU founders",
+      body: [
+        "Lithuania is one of the few EU countries offering a dedicated Startup Visa program, designed to help innovative founders establish their business and secure a residence permit in Europe.",
+        "What the Startup Visa offers",
+        "• Temporary residence permit for up to 2 years (extendable to 5).",
+        "• The right to bring family members.",
+        "• Access to the EU market and Lithuania’s growing startup ecosystem.",
+        "What is required",
+        "• A business idea or MVP.",
+        "• A clear Pitch Deck (10–12 slides presenting your startup).",
+        "• Proof of sufficient funds to cover living and business expenses.",
+        "• Company registration (MB or UAB) within 120 days of arrival.",
+        "Typical challenges",
+        "Many founders underestimate the complexity of preparing the right documents and financial plans. Even strong projects risk rejection if the submission is incomplete or does not meet formal criteria.",
+        "How we assist",
+        "We provide end-to-end support: preparing your Pitch Deck, structuring your business plan, registering your company, and handling all communication with Lithuanian authorities. With our guidance, you can focus on building your business while we take care of the legal and administrative side."
+      ],
+      lead: "Lithuania is one of the few EU countries with a Startup Visa program for innovative founders."
+    },
+    ru: {
+      title: "Startup-виза в Литве: возможность для предпринимателей из-за пределов ЕС",
+      body: [
+        "Литва остаётся одной из немногих стран ЕС, где можно получить вид на жительство, развивая собственный стартап. Программа Startup Visa Lithuania создана специально для основателей инновационных проектов, которые хотят выйти на европейский рынок.",
+        "Что даёт стартап-виза",
+        "• ВНЖ до 2 лет, с возможностью продления до 5.",
+        "• Возможность привезти семью.",
+        "• Выход на рынок ЕС и доступ к инвестиционной экосистеме.",
+        "Что потребуется",
+        "• Идея или MVP.",
+        "• Pitch Deck — презентация проекта (10–12 слайдов).",
+        "• Средства на жизнь и запуск.",
+        "• Регистрация фирмы (MB или UAB) в течение 120 дней после приезда.",
+        "С какими трудностями сталкиваются",
+        "На практике сложности — в подготовке документов, бизнес-плана, юр. регистрации и коммуникации с госорганами. Отказы часто — из-за формальных ошибок.",
+        "Как мы помогаем",
+        "Сопровождаем на каждом этапе: от Pitch Deck и структуры бизнеса до регистрации компании и миграционных документов — вы строите продукт, мы закрываем формальности."
+      ],
+      lead: "Литва — одна из немногих стран ЕС со специальной Startup-визой для основателей."
+   },
+  },
+  "uae-for-eu-it": {
+    en: {
+      title: "UAE as a Gateway for European IT Companies: From Startup to Global Scale",
+      body: [
+        "For European IT businesses, expanding beyond the EU often means searching for a hub that combines innovation, tax efficiency, and global access. The UAE has become a leading destination for IT companies, SaaS providers, and digital startups from Europe.",
+        "Why IT chooses the UAE",
+        "• Free zones for technology (DIC, IFZA, DMCC, ADGM for fintech).",
+        "• 100% foreign ownership.",
+        "• Tax advantages: 0% up to AED 375k profit; treaty network with the EU.",
+        "• Talent & visas: fast-track residency for founders and teams.",
+        "Registration process",
+        "1) Choose a free zone; 2) Submit docs; 3) Incorporate (5–10 business days); 4) Bank & visas.",
+        "Why work with ProLegall",
+        "We guide founders through zone selection, tax-efficient structuring, banking, compliance, and visas so you can focus on growth."
+      ],
+      lead: "A practical route for EU IT & SaaS founders to scale in the Gulf with reputation and banking."
+    },
+    ru: {
+     title: "ОАЭ как платформа для европейских IT-компаний: от стартапа до глобального роста",
+      body: [
+        "Для европейских IT-компаний выход за пределы ЕС — это поиск юрисдикции с инновациями, налоговой эффективностью и доступом к глобальным рынкам. ОАЭ стали одним из ведущих направлений для IT-бизнеса и стартапов.",
+       "Почему IT выбирает ОАЭ",
+        "• Тех-свободные зоны: DIC, IFZA, DMCC, ADGM (для финтеха).",
+       "• 100% иностранное владение.",
+        "• Налоговые преимущества и сеть DTT.",
+        "• Быстрые визы для основателей и команды.",
+        "Процесс регистрации",
+        "1) Выбор зоны; 2) Документы; 3) Регистрация (5–10 раб. дней); 4) Банк и визы.",
+        "Почему ProLegall",
+        "Берём на себя выбор зоны, структуру, банки, комплаенс и визы — вы растёте, мы закрываем операцию."
+      ],
+      lead: "Понятный путь для IT и SaaS из ЕС: репутация, банки и быстрый масштаб в Персидском заливе."
+    },
+  },
+  "bahrain-holdings": {
+    en: {
+      title: "Bahrain for European Holding and Investment Companies: A Cost-Effective Gateway to the Gulf",
+      body: [
+        "When European businesses consider the Gulf, the UAE often comes first. Yet Bahrain is becoming an attractive alternative for holding and investment companies seeking efficiency and lower operating costs.",
+        "Why Bahrain?",
+        "• Cost-effective setup and maintenance.",
+        "• Common law environment.",
+        "• Strategic access to Saudi Arabia via GCC.",
+        "• Focus on fintech and investment platforms.",
+        "Registration process",
+        "1) Select vehicle; 2) Provide docs; 3) Incorporation (7–14 business days); 4) Basic substance & filings.",
+        "Why ProLegall",
+        "We deliver end-to-end incorporation and administration in Bahrain with legal and tax clarity."
+      ],
+      lead: "An efficient, lower-cost alternative in the Gulf for holdings and investment platforms."
+    },
+    ru: {
+      title: "Бахрейн для европейских холдингов и инвесткомпаний: доступный вход в Персидский залив",
+      body: [
+        "Часто на первом месте — ОАЭ, но Бахрейн становится привлекательной альтернативой для холдингов и инвестструктур с упором на эффективность и низкие издержки.",
+        "Почему Бахрейн?",
+        "• Более низкие стоимость регистрации и сопровождения.",
+        "• Англо-правовая система.",
+        "• Доступ к Саудовской Аравии через соглашения GCC.",
+        "• Фокус на финтех и инвестиции.",
+        "Процесс регистрации",
+        "1) Выбор формы; 2) Документы; 3) Регистрация (7–14 раб. дней); 4) Базовый substance и отчётность.",
+        "Почему ProLegall",
+        "Мы обеспечиваем полную прозрачность и администрирование холдингов в Бахрейне от А до Я."
+      ],
+      lead: "Экономичный вариант в регионе Залива для холдингов и инвестиционных компаний."
+    },
+  },
+};
+
 // English/Lithuanian/Azerbaijani translations used by t()
 const I18N = {
   en: {
@@ -216,10 +349,13 @@ const I18N = {
     contacts_title: "Contacts",
     write_us: "Write to us",
     details_contact: "Details & contact",
+    location_vilnius: "Vilnius, Lithuania",
   },
 
  ru: {
     quiz_title: "Юрисдикция за одну минуту", 
+      location_vilnius: "Вильнюс, Литва",
+
   },
 
   lt: {
@@ -758,9 +894,9 @@ function Footer({ t }) {
                 <Phone className="h-4 w-4" /> WhatsApp / Telegram: +370 619
                 70610
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" /> Вильнюс, Литва
-              </li>
+           <li className="flex items-center gap-2">
+  <MapPin className="h-4 w-4" /> {t("location_vilnius", "Vilnius, Lithuania")}
+</li>
             </ul>
           </div>
           <div>
@@ -897,43 +1033,67 @@ function HomeHero({ t }) {
                   {t("hero_quick", "Быстрый запрос")}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <Input
-                    placeholder={t("hero_name", "Ваше имя")}
-                    className="bg-white/95"
-                    aria-label={t("hero_name", "Ваше имя")}
-                  />
-                  <Input
-                    placeholder={t("hero_email", "Email")}
-                    type="email"
-                    className="bg-white/95"
-                    aria-label="Email"
-                  />
-                  <Input
-                    placeholder={t("hero_phone", "Телефон / WhatsApp")}
-                    className="bg-white/95"
-                    aria-label="Телефон"
-                  />
-                  <Input
-                    placeholder={t(
-                      "hero_task",
-                      "Кратко о задаче (напр. DMCC холдинг)"
-                    )}
-                    className="bg-white/95"
-                    aria-label="Задача"
-                  />
-                  <Button className="w-full rounded-2xl bg-amber-500 text-black hover:bg-amber-400">
-                    {t("hero_send", "Отправить")}
-                  </Button>
-                  <p className="text-xs text-gray-600 dark:text-white/80">
-                    {t(
-                      "hero_consent",
-                      "Отправляя, вы соглашаетесь с политикой конфиденциальности."
-                    )}
-                  </p>
-                </div>
-              </CardContent>
+            <CardContent>
+  <form
+    action="https://formsubmit.co/info@prolegall.com"
+    method="POST"
+    className="space-y-3"
+  >
+    {/* FormSubmit settings */}
+    <input type="hidden" name="_subject" value="Quick request: prolegall.com" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <input
+      type="hidden"
+      name="_next"
+      value={(typeof window !== "undefined"
+        ? window.location.origin
+        : "") + "/#/contact?sent=1"}
+    />
+
+    <Input
+      name="name"
+      required
+      placeholder={t("hero_name", "Ваше имя")}
+      className="bg-white/95"
+      aria-label={t("hero_name", "Ваше имя")}
+    />
+    <Input
+      name="email"
+      required
+      type="email"
+      placeholder={t("hero_email", "Email")}
+      className="bg-white/95"
+      aria-label="Email"
+    />
+    <Input
+      name="phone"
+      placeholder={t("hero_phone", "Телефон / WhatsApp")}
+      className="bg-white/95"
+      aria-label="Телефон"
+    />
+    <Input
+      name="message"
+      placeholder={t("hero_task", "Кратко о задаче (напр. DMCC холдинг)")}
+      className="bg-white/95"
+      aria-label="Задача"
+    />
+
+    <Button
+      type="submit"
+      className="w-full rounded-2xl bg-amber-500 text-black hover:bg-amber-400"
+    >
+      {t("hero_send", "Отправить")}
+    </Button>
+    <p className="text-xs text-gray-600 dark:text-white/80">
+      {t(
+        "hero_consent",
+        "Отправляя, вы соглашаетесь с политикой конфиденциальности."
+      )}
+    </p>
+  </form>
+</CardContent>
+
             </div>
           </motion.div>
         </motion.div>
@@ -1200,9 +1360,9 @@ function QuizTeaser({ t }) {
                   </ul>
                 </div>
 
-                <Button className="w-full rounded-2xl">
-                  {t("quiz_get", "Получить подробный отчёт")}
-                </Button>
+               <Button as="a" href="#/contact" className="w-full rounded-2xl">
+                   {t("quiz_get", "Получить подробный отчёт")}
+               </Button>
               </CardContent>
             </Card>
           </div>
@@ -1280,88 +1440,89 @@ function CasesList({ t }) {
   );
 }
 
-function JurisdictionInOneMinute() {
-  const steps = [
-    { key: "goal", label: "Цель регистрации", required: true, options: [
-      { value: "operate", label: "Операционная компания (услуги/торговля)" },
-      { value: "holding", label: "Холдинг / инвестиции" },
-      { value: "fintech", label: "Финтех / регулируемые услуги" },
-      { value: "consulting", label: "Консалтинг / IT / цифровые услуги" },
-    ]},
-    { key: "region", label: "Предпочтительный регион", required: true, options: [
-      { value: "eu", label: "Европа" },
-      { value: "gulf", label: "Персидский залив (ОАЭ, Бахрейн, Оман, Катар)" },
-      { value: "asia", label: "Азия (Сингапур, Малайзия)" },
-      { value: "cis", label: "Страны СНГ" },
-    ]},
-    { key: "priority", label: "Ключевой приоритет", required: true, options: [
-      { value: "tax", label: "Налоговая эффективность" },
-      { value: "reputation", label: "Репутация и доступ к банкам" },
-      { value: "speed", label: "Скорость и простота запуска" },
-      { value: "eu_access", label: "Доступ к ЕС и прозрачность" },
-    ]},
-    { key: "presence", label: "Планируете сотрудников/присутствие на месте?", required: true, options: [
-      { value: "none", label: "Нет, полностью удалённо" },
-      { value: "few", label: "1–3 человека / минимальное присутствие" },
-      { value: "many", label: "4+ сотрудников / офис" },
-    ]},
-    { key: "timeline", label: "Сроки запуска", required: true, options: [
-      { value: "fast", label: "До 2 недель" },
-      { value: "normal", label: "2–6 недель" },
-      { value: "flex", label: "Готов ждать более 6 недель" },
-    ]},
-    { key: "industry", label: "Сфера деятельности", required: true, options: [
-      { value: "it", label: "IT / цифровые услуги" },
-      { value: "trading", label: "Торговля / логистика" },
-      { value: "manufacturing", label: "Производство / оборудование" },
-      { value: "investments", label: "Инвестиции / холдинг" },
-    ]},
-    { key: "banking", label: "Банковская потребность", required: true, options: [
-      { value: "local", label: "Нужен местный банковский счёт" },
-      { value: "fintech_ok", label: "Подойдёт финтех/междунар. банк" },
-      { value: "external", label: "Счёт открыт за рубежом" },
-    ]},
-    { key: "budget", label: "Бюджет на запуск и первый год сопровождения", required: true, options: [
-      { value: "5-10", label: "€5 000 – €10 000" },
-      { value: "10-20", label: "€10 000 – €20 000" },
-      { value: "20-40", label: "€20 000 – €40 000" },
-      { value: "40+", label: "€40 000+" },
-    ]},
+function JurisdictionInOneMinute({ t, lang }) {
+  const L = (en, ru) => (lang === "ru" ? ru : en);
+   const steps = [
+  { key: "goal", label: L("Registration goal","Цель регистрации"), required: true, options: [
+     { value: "operate",   label: L("Operating company (services/trading)","Операционная компания (услуги/торговля)") },
+     { value: "holding",   label: L("Holding / investments","Холдинг / инвестиции") },
+     { value: "fintech",   label: L("Fintech / regulated services","Финтех / регулируемые услуги") },
+     { value: "consulting",label: L("Consulting / IT / digital","Консалтинг / IT / цифровые услуги") },
+   ]},
+  { key: "region", label: L("Preferred region","Предпочтительный регион"), required: true, options: [
+     { value: "eu",   label: L("Europe","Европа") },
+     { value: "gulf", label: L("Gulf (UAE, Bahrain, Oman, Qatar)","Персидский залив (ОАЭ, Бахрейн, Оман, Катар)") },
+     { value: "asia", label: L("Asia (Singapore, Malaysia)","Азия (Сингапур, Малайзия)") },
+     { value: "cis",  label: L("CIS countries","Страны СНГ") },
+   ]},
+     { key: "priority", label: L("Key priority","Ключевой приоритет"), required: true, options: [
+     { value: "tax",        label: L("Tax efficiency","Налоговая эффективность") },
+     { value: "reputation", label: L("Reputation & bank access","Репутация и доступ к банкам") },
+     { value: "speed",      label: L("Speed & simplicity","Скорость и простота запуска") },
+     { value: "eu_access",  label: L("EU access & transparency","Доступ к ЕС и прозрачность") },
+   ]},
+  { key: "presence", label: L("On-site presence/staff?","Планируете сотрудников/присутствие на месте?"), required: true, options: [
+     { value: "none", label: L("No, fully remote","Нет, полностью удалённо") },
+     { value: "few",  label: L("1–3 people / minimal presence","1–3 человека / минимальное присутствие") },
+     { value: "many", label: L("4+ staff / office","4+ сотрудников / офис") },
+   ]},
+  { key: "timeline", label: L("Launch timing","Сроки запуска"), required: true, options: [
+     { value: "fast",   label: L("Up to 2 weeks","До 2 недель") },
+     { value: "normal", label: L("2–6 weeks","2–6 недель") },
+     { value: "flex",   label: L("OK to wait 6+ weeks","Готов ждать более 6 недель") },
+   ]},
+   { key: "industry", label: L("Industry","Сфера деятельности"), required: true, options: [
+     { value: "it",            label: L("IT / digital services","IT / цифровые услуги") },
+     { value: "trading",       label: L("Trading / logistics","Торговля / логистика") },
+     { value: "manufacturing", label: L("Manufacturing / equipment","Производство / оборудование") },
+     { value: "investments",   label: L("Investments / holding","Инвестиции / холдинг") },
+   ]},
+    { key: "banking", label: L("Banking need","Банковская потребность"), required: true, options: [
+     { value: "local",      label: L("Need local bank account","Нужен местный банковский счёт") },
+     { value: "fintech_ok", label: L("Fintech/international is OK","Подойдёт финтех/междунар. банк") },
+     { value: "external",   label: L("Account opened abroad","Счёт открыт за рубежом") },
+   ]},
+{ key: "budget", label: L("Budget for setup + first year","Бюджет на запуск и первый год сопровождения"), required: true, options: [
+     { value: "5-10", label: "€5 000 – €10 000" },
+     { value: "10-20", label: "€10 000 – €20 000" },
+     { value: "20-40", label: "€20 000 – €40 000" },
+     { value: "40+",  label: "€40 000+" },
+   ]},
   ];
 
   const JURIS = {
     eu: {
       lite: [
-        { code: "LT-MB",  name: "Литва (MB)",       why: "Доступ к ЕС, прозрачность, быстрый запуск для услуг и IT", budget: "€5k–€10k" },
-        { code: "EE-OU",  name: "Эстония (OÜ)",     why: "Электронное управление, удобно для удалённых IT/консалтинга", budget: "€5k–€10k" },
+        { code: "LT-MB",  name: L("Lithuania (MB)","Литва (MB)"),       why: L("EU access, transparency, fast for IT/services","Доступ к ЕС, прозрачность, быстрый запуск для услуг и IT"), budget: "€5k–€10k" },
+        { code: "EE-OU",  name: L("Estonia (OÜ)","Эстония (OÜ)"),       why: L("E-governance, convenient for remote IT/consulting","Электронное управление, удобно для удалённых IT/консалтинга"), budget: "€5k–€10k" },
       ],
       plus: [
-        { code: "CY-LTD", name: "Кипр (LTD)",       why: "Холдинги, дивиденды, договорная сеть, хорошая репутация", budget: "€10k–€20k" },
+        { code: "CY-LTD", name: L("Cyprus (LTD)","Кипр (LTD)"),          why: L("Holdings, dividends, treaty network, reputation","Холдинги, дивиденды, договорная сеть, хорошая репутация"), budget: "€10k–€20k" },
       ],
     },
     gulf: {
       lite: [
-        { code: "UAE-FZ",  name: "ОАЭ (Free Zone: IFZA / RAKEZ / Meydan)", why: "Быстрый запуск услуг и e-commerce, гибкость", budget: "€5k–€10k" },
-        { code: "BHR-CR",  name: "Бахрейн (CR)",    why: "Репутация для финансовых/инвест. структур, локальные банки", budget: "€10k–€20k" },
+        { code: "UAE-FZ",  name: L("UAE (Free Zone: IFZA / RAKEZ / Meydan)", "ОАЭ (Free Zone: IFZA / RAKEZ / Meydan)"), why: L("Fast launch for services & e-commerce, flexible", "Быстрый запуск услуг и e-commerce, гибкость"), budget: "€5k–€10k" },
+        { code: "BHR-CR",  name: L("Bahrain (CR)", "Бахрейн (CR)"),         why: L("Reputable for finance/investment structures, local banks", "Репутация для финансовых/инвест. структур, локальные банки"), budget: "€10k–€20k" },
       ],
       plus: [
-        { code: "UAE-DMCC", name: "ОАЭ (DMCC)",     why: "Торговля/коммодитиз, престиж, экосистема", budget: "€10k–€20k" },
-        { code: "OMN-LLC",  name: "Оман (LLC)",     why: "При физическом присутствии и производстве", budget: "€20k–€40k" },
-        { code: "QAT-LLC",  name: "Катар (LLC)",    why: "Проекты с местным присутствием, контрактинг", budget: "€20k–€40k" },
+        { code: "UAE-DMCC", name: L("UAE (DMCC)", "ОАЭ (DMCC)"),           why: L("Trading/commodities, prestige, ecosystem", "Торговля/коммодитиз, престиж, экосистема"), budget: "€10k–€20k" },
+        { code: "OMN-LLC",  name: L("Oman (LLC)", "Оман (LLC)"),            why: L("For physical presence and manufacturing", "При физическом присутствии и производстве"), budget: "€20k–€40k" },
+        { code: "QAT-LLC",  name: L("Qatar (LLC)", "Катар (LLC)"),          why: L("Projects with local presence, contracting", "Проекты с местным присутствием, контрактинг"), budget: "€20k–€40k" },
       ],
     },
     asia: {
       lite: [
-        { code: "MYS-SDN", name: "Малайзия (Sdn Bhd)", why: "Бюджетнее Сингапура, услуги и трейдинг", budget: "€10k–€20k" },
+        { code: "MYS-SDN", name: L("Malaysia (Sdn Bhd)", "Малайзия (Sdn Bhd)"), why: L("Cheaper than Singapore, services & trading", "Бюджетнее Сингапура, услуги и трейдинг"), budget: "€10k–€20k" },
       ],
       plus: [
-        { code: "SG-PTE",  name: "Сингапур (Pte Ltd)", why: "Высокая репутация, банки, холдинги и IT", budget: "€20k–€40k" },
+        { code: "SG-PTE",  name: L("Singapore (Pte Ltd)", "Сингапур (Pte Ltd)"), why: L("High reputation, banking, holdings & IT", "Высокая репутация, банки, холдинги и IT"), budget: "€20k–€40k" },
       ],
     },
     cis: {
       lite: [
-        { code: "KZ-LLP", name: "Казахстан (ТОО / AIFC)", why: "Гибкая юрисдикция для торговли и IT", budget: "€5k–€10k" },
-        { code: "AM-LLC", name: "Армения (LLC)",  why: "Подходит для услуг/IT, умеренные требования", budget: "€5k–€10k" },
+        { code: "KZ-LLP", name: L("Kazakhstan (LLP / AIFC)", "Казахстан (ТОО / AIFC)"), why: L("Flexible jurisdiction for trading and IT", "Гибкая юрисдикция для торговли и IT"), budget: "€5k–€10k" },
+        { code: "AM-LLC", name: L("Armenia (LLC)", "Армения (LLC)"),        why: L("Good for services/IT, moderate requirements", "Подходит для услуг/IT, умеренные требования"), budget: "€5k–€10k" },
       ],
       plus: [],
     },
@@ -1398,11 +1559,11 @@ function JurisdictionInOneMinute() {
 
     const budgetTierOrder = ["5-10", "10-20", "20-40", "40+"];
     const chosenTierIndex = Math.max(budgetTierOrder.indexOf(answers.budget ?? "5-10"), 0);
-    const userBudgetText = {
-      "5-10": "от €5 000",
-      "10-20": "от €10 000",
-      "20-40": "от €20 000",
-      "40+": "от €40 000",
+   const userBudgetText = {
+      "5-10": L("from €5,000",  "от €5 000"),
+      "10-20": L("from €10,000","от €10 000"),
+      "20-40": L("from €20,000","от €20 000"),
+      "40+":  L("from €40,000","от €40 000"),
     }[budgetTierOrder[chosenTierIndex]];
 
     return { recommendations: uniq.slice(0, 3), userBudgetText };
@@ -1432,9 +1593,9 @@ function JurisdictionInOneMinute() {
   return (
     <div className="w-full max-w-2xl mx-auto px-4 py-8">
       <div className="mb-6 text-center">
-        <h1 className="text-2xl md:text-3xl font-semibold">Юрисдикция за одну минуту</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold">{t("quiz_title","Юрисдикция за одну минуту")}</h1>
         <p className="text-sm md:text-base text-gray-600 mt-2">
-          Ответьте на 8 коротких вопросов — получите 2–3 подходящие юрисдикции с ориентировочным бюджетом (от €5 000).
+           {t("quiz_desc","Ответьте на 8 коротких вопросов — получите 2–3 подходящие юрисдикции с ориентировочным бюджетом (от €5 000).")}
         </p>
       </div>
 
@@ -1453,7 +1614,9 @@ function JurisdictionInOneMinute() {
               transition={{ duration: 0.2 }}
               className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-800 p-5"
             >
-              <div className="mb-1 text-xs text-gray-500">Вопрос {current + 1} из {steps.length}</div>
+             <div className="mb-1 text-xs text-gray-500">
+   {L("Question","Вопрос")} {current + 1} {L("of","из")} {steps.length}
+ </div>
               <h2 className="text-lg font-medium mb-4">{steps[current].label}</h2>
 
               <div className="space-y-3">
@@ -1480,14 +1643,14 @@ function JurisdictionInOneMinute() {
 
               <div className="mt-6 flex items-center justify-between">
                 <button className="px-4 py-2 rounded-xl border hover:bg-gray-50 dark:hover:bg-gray-800" onClick={back} disabled={current === 0}>
-                  Назад
+                  {L("Back","Назад")}
                 </button>
                 <button
                   className={`px-5 py-2.5 rounded-xl text-white ${canNext ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-300 cursor-not-allowed"}`}
                   onClick={next}
                   disabled={!canNext}
                 >
-                  {current === steps.length - 1 ? "Посмотреть результат" : "Далее"}
+                 {current === steps.length - 1 ? L("View result","Посмотреть результат") : L("Next","Далее")}
                 </button>
               </div>
             </motion.div>
@@ -1498,17 +1661,22 @@ function JurisdictionInOneMinute() {
       {showResult && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}
           className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-800 p-6">
-          <h3 className="text-xl font-semibold mb-2">Ваши предварительные результаты</h3>
+   <h3 className="text-xl font-semibold mb-2">{L("Your preliminary results","Ваши предварительные результаты")}</h3>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            На основе ответов мы подобрали варианты. Бюджет ориентировочно {result.userBudgetText}
-            (включая регистрацию и базовое сопровождение на первый год).
+         {L("Based on your answers we suggest options. Estimated budget ",
+   "На основе ответов мы подобрали варианты. Бюджет ориентировочно ")}
+ {result.userBudgetText}
+ {L(" (includes incorporation and basic first-year support).",
+    " (включая регистрацию и базовое сопровождение на первый год).")}
           </p>
 
           <div className="grid gap-4">
             {result.recommendations.length === 0 && (
               <div className="p-4 border rounded-xl text-gray-700 dark:text-gray-200">
-                Пока нет точных совпадений. Попробуйте изменить регион или приоритеты, либо свяжитесь с нами — подберём решение вручную.
-              </div>
+{L(
+   "No exact matches yet. Try changing region/priority or contact us — we’ll tailor a route manually.",
+   "Пока нет точных совпадений. Попробуйте изменить регион или приоритеты, либо свяжитесь с нами — подберём решение вручную."
+)}              </div>
             )}
             {result.recommendations.map((j) => (
               <div key={j.code} className="p-4 border rounded-2xl">
@@ -1524,14 +1692,18 @@ function JurisdictionInOneMinute() {
           </div>
 
           <div className="mt-6 grid md:grid-cols-2 gap-3">
-            <button className="px-4 py-3 rounded-xl border hover:bg-gray-50 dark:hover:bg-gray-800" onClick={reset}>Пройти заново</button>
+            <button className="px-4 py-3 rounded-xl border hover:bg-gray-50 dark:hover:bg-gray-800" onClick={reset}>{L("Restart quiz","Пройти заново")}
+</button>
             <a href="#/contact" className="px-4 py-3 rounded-xl text-center text-white bg-indigo-600 hover:bg-indigo-700">
-              Получить детальный расчёт и таймлайн
+              {L("Get detailed estimate and timeline","Получить детальный расчёт и таймлайн")}
             </a>
           </div>
 
           <p className="text-xs text-gray-500 mt-4">
-            *Данный результат носит ориентировочный характер и не является юридической консультацией. Итоговые сроки, стоимость и требования зависят от вида деятельности, KYC/AML и банковских процедур.
+            {L(
+   "*This result is preliminary and not legal advice. Final scope, timing and cost depend on activity type, KYC/AML and banking procedures.",
+   "*Данный результат носит ориентировочный характер и не является юридической консультацией. Итоговые сроки, стоимость и требования зависят от вида деятельности, KYC/AML и банковских процедур."
+ )}
           </p>
         </motion.div>
       )}
@@ -1540,26 +1712,35 @@ function JurisdictionInOneMinute() {
 }
 
 
-function Blog({ t }) {
-  const items = [
-    { name: t("rev1_name", "Алина, владелец IT-агентства"), text: t("rev1_text", "На практике — очень быстро и чётко, по чек-листу. Банк открыли без нервов.") },
-    { name: t("rev2_name", "Олег, e-commerce"), text: t("rev2_text", "Помогли со структурой в ОАЭ и Европейским НДС. Теперь масштабируемся.") },
-    { name: t("rev3_name", "N. Family Office"), text: t("rev3_text", "Проработали наследственные сценарии, всё аккуратно и заранее.") },
-  ];
+// --- Blog list ---
+function Blog({ t, lang }) {
+  const posts = [
+    { slug: "startup-visa-lithuania" },
+    { slug: "uae-for-eu-it" },
+    { slug: "bahrain-holdings" },
+  ].map((p) => ({ ...p, ...BLOGS[p.slug][lang] }));
+
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-2xl sm:text-3xl font-semibold">
           {t("reviews_title", "Блог")}
         </h2>
-        <div className="mt-6 grid md:grid-cols-3 gap-4">
-          {items.map((it, i) => (
-            <Card key={i}>
-              <CardContent className="p-6">
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  “{it.text}”
-                </p>
-                <div className="mt-4 text-sm font-medium">{it.name}</div>
+
+        <div className="mt-6 grid md:grid-cols-3 gap-4 items-stretch">
+          {posts.map((it) => (
+            <Card key={it.slug} className="flex flex-col">
+              <CardContent className="p-6 flex flex-col gap-3 grow">
+                <div className="font-semibold text-lg">{it.title}</div>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{it.lead}</p>
+
+                <a
+                  href={`#/post?slug=${it.slug}`}
+                  className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-xl text-white font-medium
+                             bg-gradient-to-r from-purple-600 via-purple-700 to-orange-500 hover:opacity-90 transition"
+                >
+                  {t("more", "Подробнее")}
+                </a>
               </CardContent>
             </Card>
           ))}
@@ -1569,12 +1750,12 @@ function Blog({ t }) {
   );
 }
 
-function QuizPage() {
+function QuizPage({ t, lang }) {
   return (
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-          <JurisdictionInOneMinute />
+           <JurisdictionInOneMinute t={t} lang={lang} />
         </div>
       </section>
     </Page>
@@ -1615,7 +1796,8 @@ function CTA({ t }) {
 /* -----------------------------------------------------------
    Routes
 ----------------------------------------------------------- */
-function HomePage({ t }) {
+// --- Home page ---
+function HomePage({ t, lang }) {  
   return (
     <Page>
       <HomeHero t={t} />
@@ -1624,8 +1806,56 @@ function HomePage({ t }) {
       <Stats t={t} />
       <QuizTeaser t={t} />
       <CasesList t={t} />
-      <Blog t={t} />
+      <Blog t={t} lang={lang} />   
       <CTA t={t} />
+    </Page>
+  );
+}
+
+function PostPage({ lang, t }) {
+  const hash = window.location.hash || "";
+  const qs = new URLSearchParams(hash.split("?")[1] || "");
+  const slug = qs.get("slug");
+  const data = slug && BLOGS[slug] ? BLOGS[slug][lang] : null;
+
+  if (!data) return <NotFoundPage />;
+
+  return (
+    <Page>
+      <section className="bg-gray-50 dark:bg-gray-900">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
+          <a href="#/blog" className="text-purple-700 hover:underline text-sm">
+            ← {t("reviews_title", "Блог")}
+          </a>
+
+          <h1 className="mt-2 text-3xl sm:text-4xl font-semibold">
+            {data.title}
+          </h1>
+
+          {/* simple header card (no images) */}
+          <div className="mt-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4">
+            <div className="text-sm text-gray-600 dark:text-gray-300">
+              {BLOGS[slug][lang].lead}
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-4 text-sm text-gray-700 dark:text-gray-300">
+            {data.body.map((p, i) =>
+              p.startsWith("•") ? (
+                <p key={i} className="pl-4">• {p.replace(/^•\s?/, "")}</p>
+              ) : (
+                <p key={i}>{p}</p>
+              )
+            )}
+          </div>
+
+          <div className="mt-8">
+            <a href="#/blog" className="text-purple-700 hover:underline">
+              ← {t("reviews_title", "Блог")}
+            </a>
+          </div>
+        </div>
+      </section>
     </Page>
   );
 }
@@ -1693,14 +1923,15 @@ function AboutPage() {
   );
 }
 
-function ServicesPage() {
+function ServicesPage({ t, lang }) {
+  const L = (en, ru) => (lang === "ru" ? ru : en);
   const tabs = [
-    { id: "incorporation", title: "Регистрация компаний", icon: <Building2 className="h-4 w-4" /> },
-    { id: "tax", title: "Структуры и налоги", icon: <Landmark className="h-4 w-4" /> },
-    { id: "family", title: "Семейное/наследственное", icon: <ScrollText className="h-4 w-4" /> },
-    { id: "contracts", title: "Договоры и сопровождение", icon: <FileText className="h-4 w-4" /> },
-    { id: "compliance", title: "Комплаенс", icon: <ShieldCheck className="h-4 w-4" /> },
-    { id: "disputes", title: "Миграция", icon: <Gavel className="h-4 w-4" /> },
+    { id: "incorporation", title: t("svc_incorp_title", "Регистрация компаний"), icon: <Building2 className="h-4 w-4" /> },
+    { id: "tax",          title: t("svc_tax_title", "Структуры и налоги"),       icon: <Landmark className="h-4 w-4" /> },
+    { id: "family",       title: t("svc_family_title", "Семейное/наследственное"), icon: <ScrollText className="h-4 w-4" /> },
+    { id: "contracts",    title: t("svc_contracts_title", "Договоры и сопровождение"), icon: <FileText className="h-4 w-4" /> },
+    { id: "compliance",   title: t("svc_compliance_title", "Комплаенс"),         icon: <ShieldCheck className="h-4 w-4" /> },
+    { id: "disputes",     title: t("svc_disputes_title", "Миграция"),            icon: <Gavel className="h-4 w-4" /> },
   ];
   const getTabFromHash = () =>
     new URLSearchParams((window.location.hash.split("?")[1]) || "").get("tab") ||
@@ -1715,53 +1946,85 @@ function ServicesPage() {
   const content = useMemo(
     () => ({
       incorporation: {
-        lead:
-          "Регистрация компаний в Европе, на Ближнем Востоке и в Азии Основные направления: Литва, Нидерланды, Эстония, Германия, Великобритания, ОАЭ, Бахрейн, Катар, Сингапур, Гонконг и др.",
-        price: "от €3k",
+         lead: L(
+          "Company incorporations in Europe, the Gulf and Asia. Key lines: Lithuania, Netherlands, Estonia, Germany, UK, UAE, Bahrain, Qatar, Singapore, Hong Kong, etc.",
+          "Регистрация компаний в Европе, на Ближнем Востоке и в Азии. Основные направления: Литва, Нидерланды, Эстония, Германия, Великобритания, ОАЭ, Бахрейн, Катар, Сингапур, Гонконг и др."
+        ),
+        price: L("from €3k", "от €3k"),
         bullets: [
-          "Подбор юрисдикции",
-          "Выпуск корпоративных документов",
-          "Oткрытие банковского счёта",
-          "Юридический адрес и substance при необходимости",
+          L("Jurisdiction selection", "Подбор юрисдикции"),
+          L("Corporate documents issuance", "Выпуск корпоративных документов"),
+          L("Bank account opening", "Oткрытие банковского счёта"),
+          L("Registered address & substance if needed", "Юридический адрес и substance при необходимости"),
         ],
       },
       tax: {
-        lead:
-          "Разрабатываем корпоративные структуры для защиты активов и оптимизации налогообложения с учётом международных соглашений и местных правил.",
-        price: "проектно",
+       lead: L(
+          "We design corporate structures for asset protection and tax efficiency, aligned with treaties and local rules.",
+          "Разрабатываем корпоративные структуры для защиты активов и оптимизации налогообложения с учётом международных соглашений и местных правил."
+        ),
+        price: L("project-based", "проектно"),
         bullets: [
-          "Cоздание и проектирование холдингов",
-          "Учреждение фондов",
-          "Substance и корпоративное администрирование",
-          "Pеструктуризация и редомициляция компаний"
+          L("Holding design & setup", "Cоздание и проектирование холдингов"),
+          L("Foundations / funds", "Учреждение фондов"),
+          L("Substance & corporate administration", "Substance и корпоративное администрирование"),
+          L("Restructuring & redomiciliation", "Pеструктуризация и редомициляция компаний"),
         ],
       },
       family: {
-        lead:
-          "Решения для защиты капитала и планирования наследства в разных странах.",
-        price: "от €1.5к",
-        bullets: ["Брачные договоры", "Трасты и семейные фонды", "Завещания", "Опека и контроль активов"],
+          lead: L(
+          "Solutions for asset protection and succession planning across jurisdictions.",
+          "Решения для защиты капитала и планирования наследства в разных странах."
+        ),
+        price: L("from €1.5k", "от €1.5к"),
+        bullets: [
+          L("Prenuptial agreements", "Брачные договоры"),
+          L("Trusts & family foundations", "Трасты и семейные фонды"),
+          L("Wills", "Завещания"),
+          L("Guardianship & asset control", "Опека и контроль активов"),
+        ],
       },
       contracts: {
-        lead:
-          "Готовим договоры и корпоративные документы в современном и удобном формате.",
-        price: "от €250",
-        bullets: ["Разработка международных договоров", "Договоры в стиле legal design", "Внутренние политики и процедуры компаний (включая Data Privacy и GDPR)", "Договоры для M&A и корпоративных сделок"],
+          lead: L(
+          "We draft contracts and corporate docs in a clear, modern format.",
+          "Готовим договоры и корпоративные документы в современном и удобном формате."
+        ),
+        price: L("from €250", "от €250"),
+        bullets: [
+          L("Cross-border contract drafting", "Разработка международных договоров"),
+          L("Legal-design style documents", "Договоры в стиле legal design"),
+          L("Internal policies (incl. Data Privacy/GDPR)", "Внутренние политики и процедуры компаний (включая Data Privacy и GDPR)"),
+          L("M&A / corporate deal documentation", "Договоры для M&A и корпоративных сделок"),
+        ],
       },
       compliance: {
-        lead:
-          "Помогаем компаниям выстроить процессы для работы с банками и регуляторами.",
-        price: "под задачу",
-        bullets: ["KYC/AML framework", "Риск-оценка и внутренние политики", "Подготовка к проверкам банков и регуляторов", "Коммуникации с банками"],
+        lead: L(
+          "We build processes to work smoothly with banks and regulators.",
+          "Помогаем компаниям выстроить процессы для работы с банками и регуляторами."
+        ),
+        price: L("case-based", "под задачу"),
+        bullets: [
+          L("KYC/AML framework", "KYC/AML framework"),
+          L("Risk assessment & internal policies", "Риск-оценка и внутренние политики"),
+          L("Readiness for bank/regulator checks", "Подготовка к проверкам банков и регуляторов"),
+          L("Bank communications", "Коммуникации с банками"),
+        ],
       },
       disputes: {
-        lead:
-          "Помогаем получить долгосрочные визы и виды на жительство в странах Европы и Персидского залива.",
-        price: "от €2.3k",
-        bullets: ["Golden Visa / Инвесторские визы", "Freelancer Visa в странах Персидского залива", "Startup Visa в странах Европы (Литва, Португалия и др.)", "ВНЖ через регистрацию компании"],
+          lead: L(
+          "We help obtain long-term visas and residence permits in Europe and the Gulf.",
+          "Помогаем получить долгосрочные визы и виды на жительство в странах Европы и Персидского залива."
+        ),
+        price: L("from €2.3k", "от €2.3к"),
+        bullets: [
+          L("Golden / investor visas", "Golden Visa / Инвесторские визы"),
+          L("Freelancer visas in the Gulf", "Freelancer Visa в странах Персидского залива"),
+          L("Startup visas in Europe (LT, PT, etc.)", "Startup Visa в странах Европы (Литва, Португалия и др.)"),
+          L("Residence via company setup", "ВНЖ через регистрацию компании"),
+        ],
       },
     }),
-    []
+    [lang]
   );
 
   const active = content[tab];
@@ -1770,7 +2033,7 @@ function ServicesPage() {
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="text-3xl sm:text-4xl font-semibold">Услуги</h1>
+           <h1 className="text-3xl sm:text-4xl font-semibold">{t("services_title","Услуги")}</h1>
           <div className="mt-6 flex flex-wrap gap-2">
             {tabs.map((t) => (
               <a
@@ -1802,11 +2065,11 @@ function ServicesPage() {
               <div>
                 <div className="rounded-2xl bg-purple-50 dark:bg-purple-900/30 p-4">
                   <div className="text-sm text-gray-600 dark:text-gray-200">
-                    Ориентировочная стоимость
+                    {L("Estimated price","Ориентировочная стоимость")}
                   </div>
                   <div className="text-2xl font-semibold mt-1">{active.price}</div>
-                  <Button as="a" href="#/contact" className="w-full mt-4">
-                    Запросить смету
+                   <Button as="a" href="#/contact" className="w-full mt-4">
+                    {L("Request estimate","Запросить смету")}
                   </Button>
                 </div>
               </div>
@@ -1822,6 +2085,26 @@ function CasesPage() {
   return <HomePage t={(k, f) => f} />; // keep simple demo here
 }
 
+function ContactSuccessBanner() {
+  const [show, setShow] = React.useState(false);
+
+  React.useEffect(() => {
+    // Expecting hash like "#/contact?sent=1"
+    const hash = window.location.hash || "";
+    const qs = hash.split("?")[1] || "";
+    const params = new URLSearchParams(qs);
+    setShow(params.get("sent") === "1");
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <div className="mb-3 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-sm text-green-800 dark:border-green-800/50 dark:bg-green-900/30 dark:text-green-200">
+      Message sent. We’ll get back to you shortly.
+    </div>
+  );
+}
+
 function ContactPage({ t }) {
   return (
     <Page>
@@ -1831,28 +2114,69 @@ function ContactPage({ t }) {
             {t("contacts_title", "Контакты")}
           </h1>
           <div className="mt-6 grid lg:grid-cols-3 gap-6">
-            <Card className="lg:col-span-2">
-              <CardHeader>
-                <CardTitle>{t("write_us", "Напишите нам")}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="grid sm:grid-cols-2 gap-3">
-                  <Input placeholder="Имя" aria-label="Имя" />
-                  <Input placeholder="Email" type="email" aria-label="Email" />
-                </div>
-                <Input
-                  placeholder="Телефон / Telegram / WhatsApp"
-                  aria-label="Телефон"
-                />
-                <Textarea placeholder="Кратко опишите задачу" aria-label="Сообщение" />
-                <div className="flex items-center gap-3">
-                  <Button className="rounded-2xl">{t("send", "Отправить")}</Button>
-                  <span className="text-xs text-gray-500">
-                    Отправляя, вы соглашаетесь с политикой конфиденциальности.
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
+           <Card className="lg:col-span-2">
+  <CardHeader>
+    <CardTitle>{t("write_us", "Напишите нам")}</CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-3">
+    {/* Success banner if redirected with ?sent=1 */}
+    <ContactSuccessBanner />
+
+    <form
+      action="https://formsubmit.co/info@prolegall.com"
+      method="POST"
+      className="space-y-3"
+    >
+      {/* FormSubmit settings */}
+      <input type="hidden" name="_subject" value="Contact form: prolegall.com" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input
+        type="hidden"
+        name="_next"
+        value={(typeof window !== "undefined"
+          ? window.location.origin
+          : "") + "/#/contact?sent=1"}
+      />
+
+  <div className="grid sm:grid-cols-2 gap-3">
+   <Input
+     name="name"
+     required
+     placeholder={t("hero_name", "Имя")}
+     aria-label={t("hero_name", "Имя")}
+   />
+   <Input
+     name="email"
+     required
+     type="email"
+     placeholder={t("hero_email", "Email")}
+     aria-label="Email"
+   />
+ </div>
+ <Input
+   name="phone"
+   placeholder={t("hero_phone", "Телефон / Telegram / WhatsApp")}
+   aria-label={t("hero_phone", "Телефон")}
+ />
+ <Textarea
+   name="message"
+   required
+   placeholder={t("hero_task", "Кратко опишите задачу")}
+   aria-label={t("hero_task", "Сообщение")}
+ />
+      <div className="flex items-center gap-3">
+        <Button type="submit" className="rounded-2xl">
+          {t("send", "Отправить")}
+        </Button>
+        <span className="text-xs text-gray-500">
+          Отправляя, вы соглашаетесь с политикой конфиденциальности.
+        </span>
+      </div>
+    </form>
+  </CardContent>
+</Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>{t("details_contact", "Реквизиты и связь")}</CardTitle>
@@ -2004,6 +2328,7 @@ export default function ProLegallApp() {
       "/about": AboutPage,
       "/services": ServicesPage,
       "/blog": Blog,
+      "/post": PostPage,
       "/contact": ContactPage,
       "/privacy": PrivacyPage,
       "/terms": TermsPage,
@@ -2029,7 +2354,7 @@ export default function ProLegallApp() {
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       <TopNav t={t} lang={lang} setLang={setLang} />
-      <PageEl t={t} />
+      <PageEl t={t} lang={lang} />
       <Footer t={t} />
     </div>
   );
