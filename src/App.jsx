@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Scale,
   Globe2,
@@ -63,7 +63,6 @@ function useLang() {
   const t = (key, fallback) => (I18N[lang] && I18N[lang][key]) ?? fallback;
   return { lang, setLang, t };
 }
-  
 
 function LangSelect({ lang, setLang, className = "" }) {
   return (
@@ -99,17 +98,17 @@ const I18N = {
     confidential: "Confidential",
 
     // hero
-    hero_badge: "European perspective • Middle East • UAE",
+    hero_badge: "European perspective • Middle East Growth • Asian Opportunities",
     hero_title: "International structuring, inheritance and company registration —",
     hero_title_em: " simple and safe",
     hero_p:
-      "We help entrepreneurs open and protect business in the UAE, Europe and beyond. Fast, transparent and risk-aware.",
+      "We help entrepreneurs open and protect business in the Europe, Middle East And beyond. Fast, transparent and risk-aware.",
     hero_start: "Start project",
     hero_services_btn: "Services & pricing",
-    hero_sla: "Reply within 24 hours on business days",
+    hero_sla: "Reply within 2 hours on business days",
     hero_b1: "Compliance-by-design",
     hero_b2: "20+ jurisdictions",
-    hero_b3: "100+ successful cases",
+    hero_b3: "50+ successful cases",
     hero_quick: "Quick request",
     hero_name: "Your name",
     hero_email: "Email",
@@ -123,7 +122,7 @@ const I18N = {
     vp1_text: "We comply with KYC/AML and regulator requirements from day one.",
     vp2_title: "International reach",
     vp2_text:
-      "UAE, Cyprus, Europe, Saudi Arabia and other jurisdictions.",
+      "Lithuania, Cyprus, UAE, Bahrain, Singapore, Hong Kong and other jurisdictions.",
     vp3_title: "Tailored approach",
     vp3_text: "Solutions for the owner’s goals, not for templates.",
     vp4_title: "Reputation & speed",
@@ -141,10 +140,10 @@ const I18N = {
     svc_contracts_title: "Contracts & support",
     svc_contracts_desc:
       "Cross-border contracts, compliance, corporate law.",
-    svc_tax_title: "Structures & taxes",
+    svc_tax_title: "Holdings & Foundations",
     svc_tax_desc: "Holdings, funds, incentives, DTTs.",
-    svc_disputes_title: "Mediation & disputes",
-    svc_disputes_desc: "Pre-action and commercial mediation.",
+    svc_disputes_title: "Migration services",
+    svc_disputes_desc: "Residency and visa support for enterpreneurs.",
     svc_compliance_title: "Compliance support",
     svc_compliance_desc:
       "Policies, procedures, audit readiness.",
@@ -188,8 +187,8 @@ const I18N = {
     case3_title: "Cross-border transaction",
     case3_text: "SPA, sanctions clauses, escrow.",
 
-    // testimonials
-    reviews_title: "Testimonials",
+    // Blog
+    reviews_title: "Blog",
     rev1_text:
       "In practice — very fast and precise, checklist-driven. Bank opened with zero stress.",
     rev1_name: "Alina, IT agency owner",
@@ -201,10 +200,10 @@ const I18N = {
     rev3_name: "N. Family Office",
 
     // cta
-    cta_title:
-      "Ready to start? We’ll discuss your task and propose a route within 24 hours",
-    cta_text: "No pushy sales. Confidential.",
-    send: "Send",
+    // cta_title:
+    //   "Ready to start? We’ll discuss your task and propose a route within 24 hours",
+    // cta_text: "No pushy sales. Confidential.",
+    // send: "Send",
 
     // footer
     footer_contacts: "Contacts",
@@ -213,10 +212,14 @@ const I18N = {
     privacy: "Privacy Policy",
     terms: "Terms of Service",
     footer_intro:
-      "International tax planning, inheritance law and company registration. Offices: Vilnius • Baku.",
+      "International company structuring, family wealth and inheritance planning, global mobility solutions.",
     contacts_title: "Contacts",
     write_us: "Write to us",
     details_contact: "Details & contact",
+  },
+
+ ru: {
+    quiz_title: "Юрисдикция за одну минуту", 
   },
 
   lt: {
@@ -480,7 +483,8 @@ function Button({
     primary:
       "bg-purple-700 text-white hover:bg-purple-800 focus:ring-purple-300",
     secondary:
-      "bg-white/15 text-white border border-white/20 hover:bg-white/25 focus:ring-white",
+      "border bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-300 " +
+      "dark:bg-white/15 dark:text-white dark:border-white/20 dark:hover:bg-white/25 dark:focus:ring-white",
     ghost:
       "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-gray-100",
     amber:
@@ -582,7 +586,7 @@ function Logo() {
       <div className="leading-tight">
         <div className="text-lg font-semibold tracking-tight">ProLegall</div>
         <div className="text-[11px] uppercase tracking-[0.2em] text-gray-500">
-          Family Office &amp; Tax
+          Global Legal Advisory
         </div>
       </div>
     </a>
@@ -738,7 +742,7 @@ function Footer({ t }) {
             <p className="mt-3 text-sm text-gray-600 dark:text-gray-300 max-w-xs">
               {t(
                 "footer_intro",
-                "Международное налоговое планирование, наследственное право и регистрация компаний. Офисы: Вильнюс • Баку."
+                "Международное структурирование компаний, планирование семейного капитала и наследства, решения для глобальной мобильности."
               )}
             </p>
           </div>
@@ -751,8 +755,8 @@ function Footer({ t }) {
                 <Mail className="h-4 w-4" /> info@prolegall.com
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4" /> WhatsApp / Telegram: +370 xxx
-                xxxx
+                <Phone className="h-4 w-4" /> WhatsApp / Telegram: +370 619
+                70610
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" /> Вильнюс, Литва
@@ -775,8 +779,8 @@ function Footer({ t }) {
                 </a>
               </li>
               <li>
-                <a href="#/cases" className="hover:text-purple-700">
-                  {t("nav_cases", "Кейсы")}
+                <a href="#/blog" className="hover:text-purple-700">
+                  {t("nav_cases", "Блог")}
                 </a>
               </li>
               <li>
@@ -826,23 +830,25 @@ function HomeHero({ t }) {
           animate="show"
           className="grid lg:grid-cols-12 gap-10 items-center"
         >
-          <motion.div variants={item} className="lg:col-span-7 text-white">
+          <motion.div variants={item} className="lg:col-span-7 text-gray-900 dark:text-white">
             <Badge className="bg-amber-500/90 text-black mb-4">
-              {t("hero_badge", "Европейский взгляд • Ближний Восток • ОАЭ")}
+              {t("hero_badge", "Европейская Перспектива • Рост Ближнего Востока • Возможности Азии")}
             </Badge>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
               {t(
                 "hero_title",
                 "Международное структурирование, наследование и регистрация компаний —"
               )}
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-white">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r
+                 from-amber-500 to-gray-900
+                 dark:from-amber-300 dark:to-white">
                 {t("hero_title_em", " просто и безопасно")}
               </span>
             </h1>
-            <p className="mt-5 text-lg text-white/90 max-w-2xl">
+            <p className="mt-5 text-lg text-gray-700 dark:text-white/90 max-w-2xl">
               {t(
                 "hero_p",
-                "Помогаем предпринимателям открыть и защитить бизнес в ОАЭ, Европе и за их пределами. Работаем быстро, прозрачно и бережно к рискам."
+                "Мы помогаем предпринимателям открыть и защитить бизнес как в Европе, так и в странах Персидского залива. Работаем быстро, прозрачно и с вниманием к рискам."
               )}
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -865,11 +871,11 @@ function HomeHero({ t }) {
               >
                 {t("hero_services_btn", "Услуги и цены")}
               </Button>
-              <div className="text-sm text-white/80">
-                {t("hero_sla", "Ответ за 24 часа в будни")}
+              <div className="text-sm text-gray-600 dark:text-white/80">
+                {t("hero_sla", "Ответим в течение 2 часов в будни")}
               </div>
             </div>
-            <div className="mt-8 flex flex-wrap gap-6 text-white/80">
+            <div className="mt-8 flex flex-wrap gap-6 text-gray-700 dark:text-white/80">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4" /> {t("hero_b1", "Комплаенс-by-design")}
               </div>
@@ -877,15 +883,17 @@ function HomeHero({ t }) {
                 <Globe2 className="h-4 w-4" /> {t("hero_b2", "20+ юрисдикций")}
               </div>
               <div className="flex items-center gap-2">
-                <Award className="h-4 w-4" /> {t("hero_b3", "100+ успешных кейсов")}
+                <Award className="h-4 w-4" /> {t("hero_b3", "50+ успешных кейсов")}
               </div>
             </div>
           </motion.div>
 
           <motion.div variants={item} className="lg:col-span-5">
-            <div className="rounded-2xl border border-white/20 bg-white/10 text-white backdrop-blur-md">
+            <div className="rounded-2xl border bg-white text-gray-900 backdrop-blur-md
+                border-gray-200
+                dark:border-white/20 dark:bg-white/10 dark:text-white">
               <CardHeader>
-                <CardTitle className="text-white">
+                <CardTitle className="text-gray-900 dark:text-white">
                   {t("hero_quick", "Быстрый запрос")}
                 </CardTitle>
               </CardHeader>
@@ -918,7 +926,7 @@ function HomeHero({ t }) {
                   <Button className="w-full rounded-2xl bg-amber-500 text-black hover:bg-amber-400">
                     {t("hero_send", "Отправить")}
                   </Button>
-                  <p className="text-xs text-white/80">
+                  <p className="text-xs text-gray-600 dark:text-white/80">
                     {t(
                       "hero_consent",
                       "Отправляя, вы соглашаетесь с политикой конфиденциальности."
@@ -949,7 +957,7 @@ function ValueProps({ t }) {
       title: t("vp2_title", "Международный охват"),
       text: t(
         "vp2_text",
-        "ОАЭ, Кипр, Европа, Саудовская Аравия и другие юрисдикции."
+        "Литва, Кипр, ОАЭ, Бахрейн, Сингапур, Гонконг и другие юрисдикции."
       ),
     },
     {
@@ -957,7 +965,7 @@ function ValueProps({ t }) {
       title: t("vp3_title", "Индивидуальный подход"),
       text: t(
         "vp3_text",
-        "Решения под задачи владельца, а не под шаблон."
+        "Решения под задачи клиентa, а не под шаблон."
       ),
     },
     {
@@ -1000,7 +1008,7 @@ function ServicesGrid({ t }) {
       title: t("svc_incorp_title", "Регистрация компаний"),
       text: t(
         "svc_incorp_desc",
-        "Открытие, банк, субстанция, сопровождение."
+        "Регистрация компании, банковское сопровождение, substance и поддержка."
       ),
       href: "#/services?tab=incorporation",
     },
@@ -1018,22 +1026,22 @@ function ServicesGrid({ t }) {
       title: t("svc_contracts_title", "Договоры и сопровождение"),
       text: t(
         "svc_contracts_desc",
-        "Договоры МВЭД, комплаенс, корпоративное право."
+        "Разрабатываем и адаптируем договоры для международной торговли и корпоративных проектов на русском и английском языках."
       ),
       href: "#/services?tab=contracts",
     },
     {
       icon: <Landmark className="h-5 w-5" />,
       title: t("svc_tax_title", "Структуры и налоги"),
-      text: t("svc_tax_desc", "Холдинги, фонды, льготы, ДИДН."),
+      text: t("svc_tax_desc", "Создание фондов и холдингов, международные налоговые решения."),
       href: "#/services?tab=tax",
     },
     {
       icon: <Gavel className="h-5 w-5" />,
-      title: t("svc_disputes_title", "Медиация и споры"),
+      title: t("svc_disputes_title", "Миграция"),
       text: t(
         "svc_disputes_desc",
-        "Преддоговорная и коммерческая медиация."
+        "Миграционные решения: ВНЖ, золотые и стартап-визы"
       ),
       href: "#/services?tab=disputes",
     },
@@ -1093,9 +1101,9 @@ function ServicesGrid({ t }) {
 function Stats({ t }) {
   const stats = [
     { k: "20+", v: t("stats_juris", "Юрисдикций") },
-    { k: "100+", v: t("stats_cases", "Кейсов") },
+    { k: "50+", v: t("stats_cases", "Кейсов") },
     { k: "$1.3M", v: t("stats_saved", "Сэкономлено клиентам") },
-    { k: "24h", v: t("stats_first", "На первый ответ") },
+    { k: "2h", v: t("stats_first", "На первый ответ") },
   ];
   return (
     <section className="bg-gradient-to-r from-purple-900 via-purple-800 to-orange-600 text-white">
@@ -1131,7 +1139,7 @@ function QuizTeaser({ t }) {
             <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-xl">
               {t(
                 "quiz_desc",
-                "Ответьте на 6–8 простых вопросов и получите первичный маршрут: подходящие зоны, ориентировочные сборы и требования к субстанции."
+                "Ответьте на 6–8 простых вопросов и получите первичный маршрут: подходящие зоны, ориентировочные сборы и требования к substance."
               )}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -1145,8 +1153,8 @@ function QuizTeaser({ t }) {
               ))}
             </div>
             <div className="mt-6 flex gap-3">
-              <Button as="a" href="#/services" className="rounded-2xl">
-                {t("quiz_take", "Пройти тест")}
+             <Button as="a" href="#/quiz" className="rounded-2xl">
+    {t("quiz_take", "Пройти тест")}
               </Button>
               <Button variant="ghost" className="rounded-2xl">
                 {t("quiz_example", "Смотреть пример")}
@@ -1186,7 +1194,7 @@ function QuizTeaser({ t }) {
                     {t("quiz_req", "Требования")}
                   </div>
                   <ul className="list-disc pl-5 text-gray-600 dark:text-gray-200">
-                    <li>{t("quiz_r1", "Субстанция: flex (офис по требованию)")}</li>
+                    <li>{t("quiz_r1", "Substance: flex (офис по требованию)")}</li>
                     <li>{t("quiz_r2", "Директор-резидент: не требуется")}</li>
                     <li>{t("quiz_r3", "KYC: стандартный")}</li>
                   </ul>
@@ -1272,7 +1280,267 @@ function CasesList({ t }) {
   );
 }
 
-function Testimonials({ t }) {
+function JurisdictionInOneMinute() {
+  const steps = [
+    { key: "goal", label: "Цель регистрации", required: true, options: [
+      { value: "operate", label: "Операционная компания (услуги/торговля)" },
+      { value: "holding", label: "Холдинг / инвестиции" },
+      { value: "fintech", label: "Финтех / регулируемые услуги" },
+      { value: "consulting", label: "Консалтинг / IT / цифровые услуги" },
+    ]},
+    { key: "region", label: "Предпочтительный регион", required: true, options: [
+      { value: "eu", label: "Европа" },
+      { value: "gulf", label: "Персидский залив (ОАЭ, Бахрейн, Оман, Катар)" },
+      { value: "asia", label: "Азия (Сингапур, Малайзия)" },
+      { value: "cis", label: "Страны СНГ" },
+    ]},
+    { key: "priority", label: "Ключевой приоритет", required: true, options: [
+      { value: "tax", label: "Налоговая эффективность" },
+      { value: "reputation", label: "Репутация и доступ к банкам" },
+      { value: "speed", label: "Скорость и простота запуска" },
+      { value: "eu_access", label: "Доступ к ЕС и прозрачность" },
+    ]},
+    { key: "presence", label: "Планируете сотрудников/присутствие на месте?", required: true, options: [
+      { value: "none", label: "Нет, полностью удалённо" },
+      { value: "few", label: "1–3 человека / минимальное присутствие" },
+      { value: "many", label: "4+ сотрудников / офис" },
+    ]},
+    { key: "timeline", label: "Сроки запуска", required: true, options: [
+      { value: "fast", label: "До 2 недель" },
+      { value: "normal", label: "2–6 недель" },
+      { value: "flex", label: "Готов ждать более 6 недель" },
+    ]},
+    { key: "industry", label: "Сфера деятельности", required: true, options: [
+      { value: "it", label: "IT / цифровые услуги" },
+      { value: "trading", label: "Торговля / логистика" },
+      { value: "manufacturing", label: "Производство / оборудование" },
+      { value: "investments", label: "Инвестиции / холдинг" },
+    ]},
+    { key: "banking", label: "Банковская потребность", required: true, options: [
+      { value: "local", label: "Нужен местный банковский счёт" },
+      { value: "fintech_ok", label: "Подойдёт финтех/междунар. банк" },
+      { value: "external", label: "Счёт открыт за рубежом" },
+    ]},
+    { key: "budget", label: "Бюджет на запуск и первый год сопровождения", required: true, options: [
+      { value: "5-10", label: "€5 000 – €10 000" },
+      { value: "10-20", label: "€10 000 – €20 000" },
+      { value: "20-40", label: "€20 000 – €40 000" },
+      { value: "40+", label: "€40 000+" },
+    ]},
+  ];
+
+  const JURIS = {
+    eu: {
+      lite: [
+        { code: "LT-MB",  name: "Литва (MB)",       why: "Доступ к ЕС, прозрачность, быстрый запуск для услуг и IT", budget: "€5k–€10k" },
+        { code: "EE-OU",  name: "Эстония (OÜ)",     why: "Электронное управление, удобно для удалённых IT/консалтинга", budget: "€5k–€10k" },
+      ],
+      plus: [
+        { code: "CY-LTD", name: "Кипр (LTD)",       why: "Холдинги, дивиденды, договорная сеть, хорошая репутация", budget: "€10k–€20k" },
+      ],
+    },
+    gulf: {
+      lite: [
+        { code: "UAE-FZ",  name: "ОАЭ (Free Zone: IFZA / RAKEZ / Meydan)", why: "Быстрый запуск услуг и e-commerce, гибкость", budget: "€5k–€10k" },
+        { code: "BHR-CR",  name: "Бахрейн (CR)",    why: "Репутация для финансовых/инвест. структур, локальные банки", budget: "€10k–€20k" },
+      ],
+      plus: [
+        { code: "UAE-DMCC", name: "ОАЭ (DMCC)",     why: "Торговля/коммодитиз, престиж, экосистема", budget: "€10k–€20k" },
+        { code: "OMN-LLC",  name: "Оман (LLC)",     why: "При физическом присутствии и производстве", budget: "€20k–€40k" },
+        { code: "QAT-LLC",  name: "Катар (LLC)",    why: "Проекты с местным присутствием, контрактинг", budget: "€20k–€40k" },
+      ],
+    },
+    asia: {
+      lite: [
+        { code: "MYS-SDN", name: "Малайзия (Sdn Bhd)", why: "Бюджетнее Сингапура, услуги и трейдинг", budget: "€10k–€20k" },
+      ],
+      plus: [
+        { code: "SG-PTE",  name: "Сингапур (Pte Ltd)", why: "Высокая репутация, банки, холдинги и IT", budget: "€20k–€40k" },
+      ],
+    },
+    cis: {
+      lite: [
+        { code: "KZ-LLP", name: "Казахстан (ТОО / AIFC)", why: "Гибкая юрисдикция для торговли и IT", budget: "€5k–€10k" },
+        { code: "AM-LLC", name: "Армения (LLC)",  why: "Подходит для услуг/IT, умеренные требования", budget: "€5k–€10k" },
+      ],
+      plus: [],
+    },
+  };
+
+  const computeRecommendation = (answers) => {
+    const { goal, region, priority, presence, timeline, industry, banking, budget } = answers;
+    const picks = [];
+
+    if (region === "eu") {
+      if (goal === "holding" || priority === "reputation") picks.push(JURIS.eu.plus[0]);
+      if (industry === "it" || goal === "consulting" || priority === "eu_access" || timeline === "fast") picks.push(...JURIS.eu.lite);
+    }
+    if (region === "gulf") {
+      if (priority === "speed" || goal === "consulting" || industry === "it") picks.push(JURIS.gulf.lite[0]);
+      if (priority === "reputation" || goal === "holding" || banking === "local") picks.push(JURIS.gulf.lite[1]);
+      if (industry === "trading" || goal === "operate") picks.push(JURIS.gulf.plus[0]);
+      if (presence !== "none" || industry === "manufacturing") { picks.push(JURIS.gulf.plus[1]); picks.push(JURIS.gulf.plus[2]); }
+    }
+    if (region === "asia") {
+      if (priority === "reputation" || banking === "local") picks.push(JURIS.asia.plus[0]);
+      if (priority === "tax" || priority === "speed" || budget === "10-20") picks.push(JURIS.asia.lite[0]);
+    }
+    if (region === "cis") {
+      picks.push(...JURIS.cis.lite);
+    }
+
+    const uniq = [];
+    const seen = new Set();
+    for (const j of picks) {
+      if (!j) continue;
+      if (!seen.has(j.code)) { uniq.push(j); seen.add(j.code); }
+    }
+
+    const budgetTierOrder = ["5-10", "10-20", "20-40", "40+"];
+    const chosenTierIndex = Math.max(budgetTierOrder.indexOf(answers.budget ?? "5-10"), 0);
+    const userBudgetText = {
+      "5-10": "от €5 000",
+      "10-20": "от €10 000",
+      "20-40": "от €20 000",
+      "40+": "от €40 000",
+    }[budgetTierOrder[chosenTierIndex]];
+
+    return { recommendations: uniq.slice(0, 3), userBudgetText };
+  };
+
+  const [current, setCurrent] = React.useState(0);
+  const [answers, setAnswers] = React.useState({});
+  const [showResult, setShowResult] = React.useState(false);
+
+  const progress = Math.round((current / steps.length) * 100);
+  const canNext = React.useMemo(() => {
+    const step = steps[current]; if (!step) return false;
+    return !step.required || Boolean(answers[step.key]);
+  }, [current, answers]);
+
+  const onPick = (key, value) => setAnswers((prev) => ({ ...prev, [key]: value }));
+  const next = () => {
+    if (!canNext) return;
+    if (current < steps.length - 1) { setCurrent((c) => c + 1); window.scrollTo({ top: 0, behavior: "smooth" }); }
+    else { setShowResult(true); window.scrollTo({ top: 0, behavior: "smooth" }); }
+  };
+  const back = () => current > 0 && setCurrent((c) => c - 1);
+  const reset = () => { setCurrent(0); setAnswers({}); setShowResult(false); };
+
+  const result = React.useMemo(() => computeRecommendation(answers), [answers]);
+
+  return (
+    <div className="w-full max-w-2xl mx-auto px-4 py-8">
+      <div className="mb-6 text-center">
+        <h1 className="text-2xl md:text-3xl font-semibold">Юрисдикция за одну минуту</h1>
+        <p className="text-sm md:text-base text-gray-600 mt-2">
+          Ответьте на 8 коротких вопросов — получите 2–3 подходящие юрисдикции с ориентировочным бюджетом (от €5 000).
+        </p>
+      </div>
+
+      {!showResult && (
+        <>
+          <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+            <div className="bg-indigo-600 h-2 rounded-full transition-all" style={{ width: `${progress}%` }} />
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-800 p-5"
+            >
+              <div className="mb-1 text-xs text-gray-500">Вопрос {current + 1} из {steps.length}</div>
+              <h2 className="text-lg font-medium mb-4">{steps[current].label}</h2>
+
+              <div className="space-y-3">
+                {steps[current].options.map((opt) => (
+                  <label
+                    key={opt.value}
+                    className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition ${
+                      answers[steps[current].key] === opt.value
+                        ? "border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20"
+                        : "hover:border-gray-400"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name={steps[current].key}
+                      className="form-radio accent-indigo-600"
+                      checked={answers[steps[current].key] === opt.value}
+                      onChange={() => onPick(steps[current].key, opt.value)}
+                    />
+                    <span className="text-sm md:text-base">{opt.label}</span>
+                  </label>
+                ))}
+              </div>
+
+              <div className="mt-6 flex items-center justify-between">
+                <button className="px-4 py-2 rounded-xl border hover:bg-gray-50 dark:hover:bg-gray-800" onClick={back} disabled={current === 0}>
+                  Назад
+                </button>
+                <button
+                  className={`px-5 py-2.5 rounded-xl text-white ${canNext ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-300 cursor-not-allowed"}`}
+                  onClick={next}
+                  disabled={!canNext}
+                >
+                  {current === steps.length - 1 ? "Посмотреть результат" : "Далее"}
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </>
+      )}
+
+      {showResult && (
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}
+          className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-800 p-6">
+          <h3 className="text-xl font-semibold mb-2">Ваши предварительные результаты</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
+            На основе ответов мы подобрали варианты. Бюджет ориентировочно {result.userBudgetText}
+            (включая регистрацию и базовое сопровождение на первый год).
+          </p>
+
+          <div className="grid gap-4">
+            {result.recommendations.length === 0 && (
+              <div className="p-4 border rounded-xl text-gray-700 dark:text-gray-200">
+                Пока нет точных совпадений. Попробуйте изменить регион или приоритеты, либо свяжитесь с нами — подберём решение вручную.
+              </div>
+            )}
+            {result.recommendations.map((j) => (
+              <div key={j.code} className="p-4 border rounded-2xl">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-base md:text-lg font-medium">{j.name}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 mt-1">{j.why}</div>
+                  </div>
+                  <div className="text-sm md:text-base font-semibold whitespace-nowrap">{j.budget}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-3">
+            <button className="px-4 py-3 rounded-xl border hover:bg-gray-50 dark:hover:bg-gray-800" onClick={reset}>Пройти заново</button>
+            <a href="#/contact" className="px-4 py-3 rounded-xl text-center text-white bg-indigo-600 hover:bg-indigo-700">
+              Получить детальный расчёт и таймлайн
+            </a>
+          </div>
+
+          <p className="text-xs text-gray-500 mt-4">
+            *Данный результат носит ориентировочный характер и не является юридической консультацией. Итоговые сроки, стоимость и требования зависят от вида деятельности, KYC/AML и банковских процедур.
+          </p>
+        </motion.div>
+      )}
+    </div>
+  );
+}
+
+
+function Blog({ t }) {
   const items = [
     { name: t("rev1_name", "Алина, владелец IT-агентства"), text: t("rev1_text", "На практике — очень быстро и чётко, по чек-листу. Банк открыли без нервов.") },
     { name: t("rev2_name", "Олег, e-commerce"), text: t("rev2_text", "Помогли со структурой в ОАЭ и Европейским НДС. Теперь масштабируемся.") },
@@ -1282,7 +1550,7 @@ function Testimonials({ t }) {
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-2xl sm:text-3xl font-semibold">
-          {t("reviews_title", "Отзывы")}
+          {t("reviews_title", "Блог")}
         </h2>
         <div className="mt-6 grid md:grid-cols-3 gap-4">
           {items.map((it, i) => (
@@ -1301,13 +1569,25 @@ function Testimonials({ t }) {
   );
 }
 
+function QuizPage() {
+  return (
+    <Page>
+      <section className="bg-gray-50 dark:bg-gray-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+          <JurisdictionInOneMinute />
+        </div>
+      </section>
+    </Page>
+  );
+}
+
 function CTA({ t }) {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-900 via-purple-800 to-orange-600" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid lg:grid-cols-12 items-center gap-8 text-white">
-          <div className="lg:col-span-8">
+          {/* <div className="lg:col-span-8">
             <h3 className="text-2xl sm:text-3xl font-semibold leading-tight">
               {t(
                 "cta_title",
@@ -1317,15 +1597,15 @@ function CTA({ t }) {
             <p className="mt-2 text-white/90">
               {t("cta_text", "Без навязчивых продаж. Конфиденциально.")}
             </p>
-          </div>
-          <div className="lg:col-span-4">
+          </div> */}
+          {/* <div className="lg:col-span-4">
             <div className="bg-white/10 backdrop-blur rounded-2xl p-2 flex gap-2">
               <Input placeholder="Email" className="bg-white/95" />
               <Button variant="amber" className="rounded-xl">
                 {t("send", "Отправить")}
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
@@ -1344,7 +1624,7 @@ function HomePage({ t }) {
       <Stats t={t} />
       <QuizTeaser t={t} />
       <CasesList t={t} />
-      <Testimonials t={t} />
+      <Blog t={t} />
       <CTA t={t} />
     </Page>
   );
@@ -1352,9 +1632,9 @@ function HomePage({ t }) {
 
 function AboutPage() {
   const highlights = [
-    { k: "20+", v: "юрисдикций работы" },
-    { k: "100+", v: "успешных кейсов" },
-    { k: "10+", v: "лет практики" },
+    { k: "20+", v: "юрисдикций" },
+    { k: "50+", v: "успешных кейсов" },
+    { k: "5+", v: "лет практики" },
   ];
   return (
     <Page>
@@ -1365,10 +1645,7 @@ function AboutPage() {
               О компании ProLegall
             </h1>
             <p className="mt-4 text-gray-600 dark:text-gray-300">
-              Мы — бутиковая юридическая команда, фокус на международных
-              структурах, семейном праве и сопровождении бизнеса в ОАЭ и
-              Европе. Работаем прозрачно, соблюдая требования банков и
-              регуляторов с первого шага.
+              Мы — бутиковая юридическая компания, оказывающая услуги в области международного структурирования бизнеса, семейного и наследственного права, миграции и комплаенса. Мы сопровождаем клиентов в Европе и странах Персидского залива, создавая прозрачные решения, соответствующие требованиям банков и регуляторов с самого первого шага.
             </p>
           </div>
           <div className="mt-10 grid sm:grid-cols-3 gap-4">
@@ -1389,15 +1666,14 @@ function AboutPage() {
               <CardContent className="text-gray-600 dark:text-gray-300 space-y-3 text-sm">
                 <p>
                   • Аналитика перед стартом: проверяем санкционные риски,
-                  банковскую приемлемость и требования к субстанции.
+                  банковскую приемлемость и требования к substance.
                 </p>
                 <p>
                   • Комплаенс-by-design: документы и структура готовятся с
                   учётом будущих проверок.
                 </p>
                 <p>
-                  • Работаем блоками: быстрый MVP-результат, затем
-                  масштабирование.
+                  • Наш подход — шаг за шагом: быстрое решение задач и комплексное сопровождение.
                 </p>
               </CardContent>
             </Card>
@@ -1424,7 +1700,7 @@ function ServicesPage() {
     { id: "family", title: "Семейное/наследственное", icon: <ScrollText className="h-4 w-4" /> },
     { id: "contracts", title: "Договоры и сопровождение", icon: <FileText className="h-4 w-4" /> },
     { id: "compliance", title: "Комплаенс", icon: <ShieldCheck className="h-4 w-4" /> },
-    { id: "disputes", title: "Медиация/споры", icon: <Gavel className="h-4 w-4" /> },
+    { id: "disputes", title: "Миграция", icon: <Gavel className="h-4 w-4" /> },
   ];
   const getTabFromHash = () =>
     new URLSearchParams((window.location.hash.split("?")[1]) || "").get("tab") ||
@@ -1440,49 +1716,49 @@ function ServicesPage() {
     () => ({
       incorporation: {
         lead:
-          "Открытие компаний в ОАЭ (DMCC, IFZA, RAKEZ), Кипр и ЕС. Полный цикл: учредительные, банк, субстанция, отчётность.",
-        price: "от $3.5k",
+          "Регистрация компаний в Европе, на Ближнем Востоке и в Азии Основные направления: Литва, Нидерланды, Эстония, Германия, Великобритания, ОАЭ, Бахрейн, Катар, Сингапур, Гонконг и др.",
+        price: "от €3k",
         bullets: [
-          "Подбор юрисдикции и зоны",
-          "Комплект учредительных",
-          "Открытие счёта (личн./корп.)",
-          "Локальные провайдеры и адрес",
+          "Подбор юрисдикции",
+          "Выпуск корпоративных документов",
+          "Oткрытие банковского счёта",
+          "Юридический адрес и substance при необходимости",
         ],
       },
       tax: {
         lead:
-          "Проектируем холдинги, фонды, кросс-границ. Комбинируем договоры об избежании двойного налогообложения и местные льготы.",
+          "Разрабатываем корпоративные структуры для защиты активов и оптимизации налогообложения с учётом международных соглашений и местных правил.",
         price: "проектно",
         bullets: [
-          "Холдинговые структуры",
-          "Налоговое резидентство",
-          "ВНЖ/субстанция",
-          "НДС ЕС и OSS",
+          "Cоздание и проектирование холдингов",
+          "Учреждение фондов",
+          "Substance и корпоративное администрирование",
+          "Pеструктуризация и редомициляция компаний"
         ],
       },
       family: {
         lead:
-          "Брачные контракты, трасты, family foundation в ОАЭ, наследование активов в нескольких странах.",
+          "Решения для защиты капитала и планирования наследства в разных странах.",
         price: "от €1.5к",
-        bullets: ["Брачные договоры", "Трасты/фонды", "Завещания", "Опека и контроль"],
+        bullets: ["Брачные договоры", "Трасты и семейные фонды", "Завещания", "Опека и контроль активов"],
       },
       contracts: {
         lead:
-          "Договоры МВЭД, корпораты, KYC-пакеты, санкционные оговорки. Рус/Eng.",
-        price: "от €900",
-        bullets: ["Поставка/агентские", "NDA/NCA", "SHA/SPA", "Политики и процедуры"],
+          "Готовим договоры и корпоративные документы в современном и удобном формате.",
+        price: "от €250",
+        bullets: ["Разработка международных договоров", "Договоры в стиле legal design", "Внутренние политики и процедуры компаний (включая Data Privacy и GDPR)", "Договоры для M&A и корпоративных сделок"],
       },
       compliance: {
         lead:
-          "KYC/AML, риск-политики, внутренний контроль, подготовка к проверкам банков/регуляторов.",
+          "Помогаем компаниям выстроить процессы для работы с банками и регуляторами.",
         price: "под задачу",
-        bullets: ["KYC/AML фреймворк", "Риск-оценка", "Коммуникации с банками", "Тренинг команды"],
+        bullets: ["KYC/AML framework", "Риск-оценка и внутренние политики", "Подготовка к проверкам банков и регуляторов", "Коммуникации с банками"],
       },
       disputes: {
         lead:
-          "Досудебная медиация, коммерческие переговоры, арбитражные оговорки.",
-        price: "помесячно",
-        bullets: ["Оценка позиций", "Стратегия переговоров", "Арбитражные форумы", "Settlement"],
+          "Помогаем получить долгосрочные визы и виды на жительство в странах Европы и Персидского залива.",
+        price: "от €2.3k",
+        bullets: ["Golden Visa / Инвесторские визы", "Freelancer Visa в странах Персидского залива", "Startup Visa в странах Европы (Литва, Португалия и др.)", "ВНЖ через регистрацию компании"],
       },
     }),
     []
@@ -1503,8 +1779,9 @@ function ServicesPage() {
                 className={cx(
                   "px-3 py-2 rounded-xl text-sm border inline-flex items-center",
                   tab === t.id
-                    ? "bg-purple-700 text-white border-purple-700"
-                    : "bg-white hover:bg-gray-50"
+                  ? "bg-purple-700 text-white border-purple-700"
+     : "bg-white text-gray-900 hover:bg-gray-50 border-gray-200 " +
+       "dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:border-gray-700"
                 )}
               >
                 {t.icon}
@@ -1585,7 +1862,7 @@ function ContactPage({ t }) {
                   <Mail className="h-4 w-4" /> info@prolegall.com
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" /> +370 xxx xxxx (TG/WA)
+                  <Phone className="h-4 w-4" /> +370 619 70610 (TG/WA)
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4" /> Вильнюс, Литва
@@ -1726,10 +2003,11 @@ export default function ProLegallApp() {
       "/": HomePage,
       "/about": AboutPage,
       "/services": ServicesPage,
-      "/cases": HomePage, // simple reuse
+      "/blog": Blog,
       "/contact": ContactPage,
       "/privacy": PrivacyPage,
       "/terms": TermsPage,
+      "/quiz": QuizPage,
     }[route] || NotFoundPage;
 
   const { lang, setLang, t } = useLang();

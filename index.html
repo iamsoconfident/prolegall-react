@@ -2,34 +2,99 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-<link
-  rel="icon"
-  type="image/svg+xml"
-  href="https://unpkg.com/lucide-static@0.539.0/icons/scale.svg"
-/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://unpkg.com/lucide-static@0.539.0/icons/scale.svg"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ProLegall — Family Office & Tax</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Force only EN/RU on first paint and normalize saved value -->
     <script>
-  (function () {
-    const supported = ['ru','en','lt','az'];
-    const lang = localStorage.getItem('lang') || 'ru';
-    document.documentElement.setAttribute('lang', supported.includes(lang) ? lang : 'ru');
-  })();
-</script>
+      (function () {
+        const allowed = ["en", "ru"];
+        let lang = localStorage.getItem("lang") || "en";
+        if (!allowed.includes(lang)) {
+          lang = "en";
+          localStorage.setItem("lang", lang);
+        }
+        document.documentElement.setAttribute("lang", lang);
+      })();
+    </script>
 
     <script>
-  tailwind.config = { darkMode: 'class' }
-</script>
-<script>
-  (function () {
-    const ls = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (ls === 'dark' || (!ls && prefersDark)) {
-      document.documentElement.classList.add('dark');
-    }
-  })();
-</script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+
+    <!-- Respect user's dark preference (unchanged) -->
+    <script>
+      (function () {
+        const ls = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (ls === "dark" || (!ls && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <!-- Remove LT/AZ from the selector after React mounts, and prevent switching to them -->
+    <script>
+      (function () {
+        const allowed = new Set(["en", "ru"]);
+
+        function scrubLanguageSelectors(root = document) {
+          // Find your language <select> (based on aria-label/title from your component)
+          const selects = root.querySelectorAll('select[aria-label="Language"], select[title="Language"]');
+          selects.forEach((sel) => {
+            // Remove disallowed options (LT/AZ)
+            Array.from(sel.options).forEach((opt) => {
+              if (!allowed.has(opt.value)) opt.remove();
+            });
+
+            // If somehow current value is disallowed, snap back to a safe one
+            if (!allowed.has(sel.value)) {
+              const safe = localStorage.getItem("lang") && allowed.has(localStorage.getItem("lang"))
+                ? localStorage.getItem("lang")
+                : "en";
+              sel.value = safe;
+              // Notify React about the change
+              sel.dispatchEvent(new Event("change", { bubbles: true }));
+            }
+
+            // Defensive: if someone tries to set a disallowed value later
+            sel.addEventListener(
+              "change",
+              (e) => {
+                if (!allowed.has(sel.value)) {
+                  const safe = localStorage.getItem("lang") && allowed.has(localStorage.getItem("lang"))
+                    ? localStorage.getItem("lang")
+                    : "en";
+                  sel.value = safe;
+                  sel.dispatchEvent(new Event("change", { bubbles: true }));
+                }
+              },
+              true
+            );
+          });
+        }
+
+        // Run once DOM is ready and keep watching for React re-renders
+        window.addEventListener("DOMContentLoaded", () => scrubLanguageSelectors());
+        const mo = new MutationObserver(() => scrubLanguageSelectors());
+        mo.observe(document.documentElement, { childList: true, subtree: true });
+
+        // Also guard localStorage 'lang' in case something external sets lt/az
+        const originalSetItem = localStorage.setItem;
+        localStorage.setItem = function (key, value) {
+          if (key === "lang" && !allowed.has(value)) {
+            value = "en";
+          }
+          return originalSetItem.apply(this, [key, value]);
+        };
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
