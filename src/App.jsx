@@ -223,7 +223,7 @@ const I18N = {
     // nav + common
     nav_services: "Services",
     nav_about: "About",
-    nav_cases: "Cases",
+    nav_cases: "Blog",
     nav_contact: "Contact",
     nav_privacy: "Privacy",
     nav_consult: "Consultation",
