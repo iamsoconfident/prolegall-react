@@ -220,8 +220,21 @@ const BLOGS = {
 // English/Lithuanian/Azerbaijani translations used by t()
 const I18N = {
   en: {
+    about_title: "About ProLegall",
+about_intro: "We are a boutique legal firm focused on international business structuring, family & inheritance law, migration and compliance. We support clients in Europe and the Gulf, creating transparent, bank-ready solutions from day one.",
+about_highlight_juris: "jurisdictions",
+about_highlight_cases: "successful cases",
+about_highlight_years: "years of practice",
+about_approach_title: "Approach",
+about_approach_b1: "Pre-start analysis: we check sanctions risks, bank acceptability and substance requirements.",
+about_approach_b2: "Compliance-by-design: documents and structure are prepared to pass future checks.",
+about_approach_b3: "Step-by-step delivery: fast task execution and ongoing support.",
+about_team_title: "Team",
+about_team_text: "A compact cross-jurisdiction team; we involve local licensed advisors where required.",
+
     // nav + common
     nav_services: "Services",
+    nav_blog: "Blog",
     nav_about: "About",
     nav_cases: "Blog",
     nav_contact: "Contact",
@@ -229,6 +242,30 @@ const I18N = {
     nav_consult: "Consultation",
     more: "More",
     confidential: "Confidential",
+    // I18N.en
+terms_title: "Terms of Service",
+terms_intro: "These terms govern the provision of legal services by ProLegall.",
+terms_1_title: "1. Subject",
+terms_1_text: "We provide consulting and representative services according to the agreed scope and estimate.",
+terms_2_title: "2. Payment",
+terms_2_text: "Fixed fee or hourly rate. Advance payment is required before work begins.",
+terms_3_title: "3. Confidentiality",
+terms_3_text: "Information received from the client will not be disclosed without consent, except as required by law.",
+terms_4_title: "4. Liability",
+terms_4_text: "Liability is limited to the amount of fees actually paid for the relevant stage of work.",
+
+
+    privacy_title: "Privacy Policy",
+privacy_intro: "This policy describes what data we collect, how we use it, and how we ensure its security.",
+privacy_1_title: "1. Data collection",
+privacy_1_text: "We collect contact details (name, email, phone) and project information you provide in forms.",
+privacy_2_title: "2. Use",
+privacy_2_text: "The data is used for communication, preparing proposals, and providing services. It is not shared with third parties without legal basis.",
+privacy_3_title: "3. Storage and security",
+privacy_3_text: "We apply organizational and technical security measures. Retention periods comply with contract and law requirements.",
+privacy_4_title: "4. Your rights",
+privacy_4_text: "You can request access, correction, or deletion of your data: ",
+privacy_contact: "contact us",
 
     // hero
     hero_badge: "European perspective • Middle East Growth • Asian Opportunities",
@@ -342,7 +379,7 @@ const I18N = {
     footer_contacts: "Contacts",
     footer_nav: "Navigation",
     footer_legal: "Legal",
-    privacy: "Privacy Policy",
+    privacy: "",
     terms: "Terms of Service",
     footer_intro:
       "International company structuring, family wealth and inheritance planning, global mobility solutions.",
@@ -353,9 +390,42 @@ const I18N = {
   },
 
  ru: {
+  about_title: "О компании ProLegall",
+about_intro: "Мы — бутиковая юридическая компания, оказывающая услуги в области международного структурирования бизнеса, семейного и наследственного права, миграции и комплаенса. Мы сопровождаем клиентов в Европе и странах Персидского залива, создавая прозрачные решения, соответствующие требованиям банков и регуляторов с самого первого шага.",
+about_highlight_juris: "юрисдикций",
+about_highlight_cases: "успешных кейсов",
+about_highlight_years: "лет практики",
+about_approach_title: "Подход",
+about_approach_b1: "Аналитика перед стартом: проверяем санкционные риски, банковскую приемлемость и требования к substance.",
+about_approach_b2: "Комплаенс-by-design: документы и структура готовятся с учётом будущих проверок.",
+about_approach_b3: "Наш подход — шаг за шагом: быстрое решение задач и комплексное сопровождение.",
+about_team_title: "Команда",
+about_team_text: "Небольшая кросс-юрисдикционная команда, привлекаем локальных консультантов там, где нужен лицензированный представитель.",
+
+  nav_blog: "Блог",
     quiz_title: "Юрисдикция за одну минуту", 
       location_vilnius: "Вильнюс, Литва",
-
+      privacy_title: "Политика конфиденциальности",
+privacy_intro: "Эта политика описывает, какие данные мы собираем, как используем и как обеспечиваем их безопасность.",
+privacy_1_title: "1. Сбор данных",
+privacy_1_text: "Мы собираем контактные данные (имя, email, телефон) и сведения о проекте, которые вы указываете в формах.",
+privacy_2_title: "2. Использование",
+privacy_2_text: "Данные используются для коммуникации, подготовки предложений и оказания услуг. Не передаются третьим лицам без правового основания.",
+privacy_3_title: "3. Хранение и безопасность",
+privacy_3_text: "Применяем организационные и технические меры защиты. Сроки хранения соответствуют требованиям договора и закона.",
+privacy_4_title: "4. Ваши права",
+privacy_4_text: "Вы можете запросить доступ, исправление или удаление данных: ",
+privacy_contact: "связаться с нами",
+terms_title: "Условия оказания услуг",
+terms_intro: "Настоящие условия регулируют порядок оказания юридических услуг ProLegall.",
+terms_1_title: "1. Предмет",
+terms_1_text: "Мы оказываем консультационные и представительные услуги по согласованному ТЗ и смете.",
+terms_2_title: "2. Оплата",
+terms_2_text: "Фиксированная стоимость или почасовая ставка. Аванс обязателен до начала работ.",
+terms_3_title: "3. Конфиденциальность",
+terms_3_text: "Информация, полученная от клиента, не раскрывается без его согласия, за исключением предусмотренных законом случаев.",
+terms_4_title: "4. Ответственность",
+terms_4_text: "Ответственность ограничивается размером фактически уплаченного вознаграждения за соответствующий этап работ.",
   },
 
   lt: {
@@ -765,7 +835,10 @@ function ThemeToggle() {
 function TopNav({ t, lang, setLang }) {
   const [open, setOpen] = useState(false);
   const hash = useHashRoute();
-  const route = (hash.replace(/^#/, "") || "/").split("?")[0];
+  
+  const raw = (hash || "#/").replace(/^#/, "");
+const base = raw.split("?")[0].replace(/\/+$/, ""); // strip trailing slashes
+const route = base === "" ? "/" : base;
 
   useEffect(() => {
     const onResize = () => setOpen(false);
@@ -773,12 +846,12 @@ function TopNav({ t, lang, setLang }) {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const NAV = [
-    { href: "#/services", label: t("nav_services", "Услуги") },
-    { href: "#/about", label: t("nav_about", "О компании") },
-    { href: "#/cases", label: t("nav_cases", "Проекты") },
-    { href: "#/contact", label: t("nav_contact", "Контакты") },
-  ];
+ const NAV = [
+  { href: "#/services", label: t("nav_services", "Услуги") },
+  { href: "#/about",    label: t("nav_about", "О компании") },
+  { href: "#/blog",     label: t("nav_blog", "Блог") },
+  { href: "#/contact",  label: t("nav_contact", "Контакты") },
+];
 
   return (
     <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/60 dark:bg-gray-900/70 border-b dark:border-gray-800">
@@ -933,7 +1006,7 @@ function Footer({ t }) {
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#/privacy" className="hover:text-purple-700">
-                  {t("privacy", "Политика конфиденциальности")}
+                  {t("privacy", "")}
                 </a>
               </li>
               <li>
@@ -1860,24 +1933,28 @@ function PostPage({ lang, t }) {
   );
 }
 
-function AboutPage() {
+function AboutPage({ t }) {
   const highlights = [
-    { k: "20+", v: "юрисдикций" },
-    { k: "50+", v: "успешных кейсов" },
-    { k: "5+", v: "лет практики" },
+    { k: "20+", v: t("about_highlight_juris", "юрисдикций") },
+    { k: "50+", v: t("about_highlight_cases", "успешных кейсов") },
+    { k: "5+",  v: t("about_highlight_years", "лет практики") },
   ];
+
   return (
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-semibold">
-              О компании ProLegall
+              {t("about_title", "О компании ProLegall")}
             </h1>
             <p className="mt-4 text-gray-600 dark:text-gray-300">
-              Мы — бутиковая юридическая компания, оказывающая услуги в области международного структурирования бизнеса, семейного и наследственного права, миграции и комплаенса. Мы сопровождаем клиентов в Европе и странах Персидского залива, создавая прозрачные решения, соответствующие требованиям банков и регуляторов с самого первого шага.
+              {t("about_intro",
+                "Мы — бутиковая юридическая компания, оказывающая услуги в области международного структурирования бизнеса, семейного и наследственного права, миграции и комплаенса. Мы сопровождаем клиентов в Европе и странах Персидского залива, создавая прозрачные решения, соответствующие требованиям банков и регуляторов с самого первого шага."
+              )}
             </p>
           </div>
+
           <div className="mt-10 grid sm:grid-cols-3 gap-4">
             {highlights.map((h, i) => (
               <Card key={i} className="text-center">
@@ -1888,32 +1965,33 @@ function AboutPage() {
               </Card>
             ))}
           </div>
+
           <div className="mt-12 grid lg:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Подход</CardTitle>
+                <CardTitle>{t("about_approach_title", "Подход")}</CardTitle>
               </CardHeader>
               <CardContent className="text-gray-600 dark:text-gray-300 space-y-3 text-sm">
-                <p>
-                  • Аналитика перед стартом: проверяем санкционные риски,
-                  банковскую приемлемость и требования к substance.
-                </p>
-                <p>
-                  • Комплаенс-by-design: документы и структура готовятся с
-                  учётом будущих проверок.
-                </p>
-                <p>
-                  • Наш подход — шаг за шагом: быстрое решение задач и комплексное сопровождение.
-                </p>
+                <p>• {t("about_approach_b1",
+                  "Аналитика перед стартом: проверяем санкционные риски, банковскую приемлемость и требования к substance."
+                )}</p>
+                <p>• {t("about_approach_b2",
+                  "Комплаенс-by-design: документы и структура готовятся с учётом будущих проверок."
+                )}</p>
+                <p>• {t("about_approach_b3",
+                  "Наш подход — шаг за шагом: быстрое решение задач и комплексное сопровождение."
+                )}</p>
               </CardContent>
             </Card>
+
             <Card>
               <CardHeader>
-                <CardTitle>Команда</CardTitle>
+                <CardTitle>{t("about_team_title", "Команда")}</CardTitle>
               </CardHeader>
               <CardContent className="text-gray-600 dark:text-gray-300 text-sm">
-                Небольшая кросс-юрисдикционная команда, привлекаем локальных
-                консультантов там, где нужен лицензированный представитель.
+                {t("about_team_text",
+                  "Небольшая кросс-юрисдикционная команда, привлекаем локальных консультантов там, где нужен лицензированный представитель."
+                )}
               </CardContent>
             </Card>
           </div>
@@ -2203,49 +2281,37 @@ function ContactPage({ t }) {
   );
 }
 
-function PrivacyPage() {
+function PrivacyPage({ t }) {
   return (
     <Page>
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
           <h1 className="text-3xl sm:text-4xl font-semibold">
-            Политика конфиденциальности
+            {t("privacy_title", "Privacy Policy")}
           </h1>
           <p className="mt-4 text-gray-600 dark:text-gray-300">
-            Эта политика описывает, какие данные мы собираем, как используем и как
-            обеспечиваем их безопасность.
+            {t("privacy_intro", "This policy describes what data we collect, how we use it, and how we ensure its security.")}
           </p>
           <div className="mt-8 space-y-6 text-sm text-gray-700 dark:text-gray-300">
             <section>
-              <h2 className="font-semibold">1. Сбор данных</h2>
-              <p>
-                Мы собираем контактные данные (имя, email, телефон) и сведения о
-                проекте, которые вы указываете в формах.
-              </p>
+              <h2 className="font-semibold">{t("privacy_1_title", "1. Data collection")}</h2>
+              <p>{t("privacy_1_text", "We collect contact details...")}</p>
             </section>
             <section>
-              <h2 className="font-semibold">2. Использование</h2>
-              <p>
-                Данные используются для коммуникации, подготовки предложений и
-                оказания услуг. Не передаются третьим лицам без правового
-                основания.
-              </p>
+              <h2 className="font-semibold">{t("privacy_2_title", "2. Use")}</h2>
+              <p>{t("privacy_2_text", "The data is used for communication...")}</p>
             </section>
             <section>
-              <h2 className="font-semibold">3. Хранение и безопасность</h2>
-              <p>
-                Применяем организационные и технические меры защиты. Сроки хранения
-                соответствуют требованиям договора и закона.
-              </p>
+              <h2 className="font-semibold">{t("privacy_3_title", "3. Storage and security")}</h2>
+              <p>{t("privacy_3_text", "We apply organizational and technical measures...")}</p>
             </section>
             <section>
-              <h2 className="font-semibold">4. Ваши права</h2>
+              <h2 className="font-semibold">{t("privacy_4_title", "4. Your rights")}</h2>
               <p>
-                Вы можете запросить доступ, исправление или удаление данных:{" "}
+                {t("privacy_4_text", "You can request access, correction, or deletion of your data:")}{" "}
                 <a href="#/contact" className="text-purple-700 underline">
-                  связаться с нами
+                  {t("privacy_contact", "contact us")}
                 </a>
-                .
               </p>
             </section>
           </div>
@@ -2255,41 +2321,33 @@ function PrivacyPage() {
   );
 }
 
-function TermsPage() {
+function TermsPage({ t }) {
   return (
     <Page>
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="text-3xl sm:text-4xl font-semibold">Условия оказания услуг</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold">
+            {t("terms_title", "Terms of Service")}
+          </h1>
+          <p className="mt-4 text-gray-600 dark:text-gray-300">
+            {t("terms_intro", "These terms govern the provision of legal services by ProLegall.")}
+          </p>
           <div className="mt-6 space-y-6 text-sm text-gray-700 dark:text-gray-300">
-            <p>
-              Настоящие условия регулируют порядок оказания юридических услуг
-              ProLegall.
-            </p>
             <section>
-              <h2 className="font-semibold">1. Предмет</h2>
-              <p>
-                Мы оказываем консультационные и представительные услуги по
-                согласованному ТЗ и смете.
-              </p>
+              <h2 className="font-semibold">{t("terms_1_title", "1. Subject")}</h2>
+              <p>{t("terms_1_text", "We provide consulting and representative services according to the agreed scope and estimate.")}</p>
             </section>
             <section>
-              <h2 className="font-semibold">2. Оплата</h2>
-              <p>Фиксированная стоимость или почасовая ставка. Аванс обязателен до начала работ.</p>
+              <h2 className="font-semibold">{t("terms_2_title", "2. Payment")}</h2>
+              <p>{t("terms_2_text", "Fixed fee or hourly rate. Advance payment is required before work begins.")}</p>
             </section>
             <section>
-              <h2 className="font-semibold">3. Конфиденциальность</h2>
-              <p>
-                Информация, полученная от клиента, не раскрывается без его
-                согласия, за исключением предусмотренных законом случаев.
-              </p>
+              <h2 className="font-semibold">{t("terms_3_title", "3. Confidentiality")}</h2>
+              <p>{t("terms_3_text", "Information received from the client will not be disclosed without consent, except as required by law.")}</p>
             </section>
             <section>
-              <h2 className="font-semibold">4. Ответственность</h2>
-              <p>
-                Ответственность ограничивается размером фактически уплаченного
-                вознаграждения за соответствующий этап работ.
-              </p>
+              <h2 className="font-semibold">{t("terms_4_title", "4. Liability")}</h2>
+              <p>{t("terms_4_text", "Liability is limited to the amount of fees actually paid for the relevant stage of work.")}</p>
             </section>
           </div>
         </div>
