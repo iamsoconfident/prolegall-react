@@ -58,7 +58,7 @@ function useLang() {
   const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'en');
   useEffect(() => {
     localStorage.setItem('lang', lang);
-    document.documentElement.setAttribute('lang', ['ru','en','lt','az'].includes(lang) ? lang : 'en');
+    document.documentElement.setAttribute('lang', ['ru', 'en', 'lt', 'az'].includes(lang) ? lang : 'en');
   }, [lang]);
   const t = (key, fallback) => (I18N[lang] && I18N[lang][key]) ?? fallback;
   return { lang, setLang, t };
@@ -145,7 +145,7 @@ const BLOGS = {
         "Сопровождаем на каждом этапе: от Pitch Deck и структуры бизнеса до регистрации компании и миграционных документов — вы строите продукт, мы закрываем формальности."
       ],
       lead: "Литва — одна из немногих стран ЕС со специальной Startup-визой для основателей."
-   },
+    },
   },
   "uae-for-eu-it": {
     en: {
@@ -165,12 +165,12 @@ const BLOGS = {
       lead: "A practical route for EU IT & SaaS founders to scale in the Gulf with reputation and banking."
     },
     ru: {
-     title: "ОАЭ как платформа для европейских IT-компаний: от стартапа до глобального роста",
+      title: "ОАЭ как платформа для европейских IT-компаний: от стартапа до глобального роста",
       body: [
         "Для европейских IT-компаний выход за пределы ЕС — это поиск юрисдикции с инновациями, налоговой эффективностью и доступом к глобальным рынкам. ОАЭ стали одним из ведущих направлений для IT-бизнеса и стартапов.",
-       "Почему IT выбирает ОАЭ",
+        "Почему IT выбирает ОАЭ",
         "• Тех-свободные зоны: DIC, IFZA, DMCC, ADGM (для финтеха).",
-       "• 100% иностранное владение.",
+        "• 100% иностранное владение.",
         "• Налоговые преимущества и сеть DTT.",
         "• Быстрые визы для основателей и команды.",
         "Процесс регистрации",
@@ -220,17 +220,19 @@ const BLOGS = {
 // English/Lithuanian/Azerbaijani translations used by t()
 const I18N = {
   en: {
+    send: "Send",
+    contact_consent: "By sending, you agree to the privacy policy.",
     about_title: "About ProLegall",
-about_intro: "We are a boutique legal firm focused on international business structuring, family & inheritance law, migration and compliance. We support clients in Europe and the Gulf, creating transparent, bank-ready solutions from day one.",
-about_highlight_juris: "jurisdictions",
-about_highlight_cases: "successful cases",
-about_highlight_years: "years of practice",
-about_approach_title: "Approach",
-about_approach_b1: "Pre-start analysis: we check sanctions risks, bank acceptability and substance requirements.",
-about_approach_b2: "Compliance-by-design: documents and structure are prepared to pass future checks.",
-about_approach_b3: "Step-by-step delivery: fast task execution and ongoing support.",
-about_team_title: "Team",
-about_team_text: "A compact cross-jurisdiction team; we involve local licensed advisors where required.",
+    about_intro: "We are a boutique legal firm focused on international business structuring, family & inheritance law, migration and compliance. We support clients in Europe and the Gulf, creating transparent, bank-ready solutions from day one.",
+    about_highlight_juris: "jurisdictions",
+    about_highlight_cases: "successful cases",
+    about_highlight_years: "years of practice",
+    about_approach_title: "Approach",
+    about_approach_b1: "Pre-start analysis: we check sanctions risks, bank acceptability and substance requirements.",
+    about_approach_b2: "Compliance-by-design: documents and structure are prepared to pass future checks.",
+    about_approach_b3: "Step-by-step delivery: fast task execution and ongoing support.",
+    about_team_title: "Team",
+    about_team_text: "A compact cross-jurisdiction team; we involve local licensed advisors where required.",
 
     // nav + common
     nav_services: "Services",
@@ -243,29 +245,29 @@ about_team_text: "A compact cross-jurisdiction team; we involve local licensed a
     more: "More",
     confidential: "Confidential",
     // I18N.en
-terms_title: "Terms of Service",
-terms_intro: "These terms govern the provision of legal services by ProLegall.",
-terms_1_title: "1. Subject",
-terms_1_text: "We provide consulting and representative services according to the agreed scope and estimate.",
-terms_2_title: "2. Payment",
-terms_2_text: "Fixed fee or hourly rate. Advance payment is required before work begins.",
-terms_3_title: "3. Confidentiality",
-terms_3_text: "Information received from the client will not be disclosed without consent, except as required by law.",
-terms_4_title: "4. Liability",
-terms_4_text: "Liability is limited to the amount of fees actually paid for the relevant stage of work.",
+    terms_title: "Terms of Service",
+    terms_intro: "These terms govern the provision of legal services by ProLegall.",
+    terms_1_title: "1. Subject",
+    terms_1_text: "We provide consulting and representative services according to the agreed scope and estimate.",
+    terms_2_title: "2. Payment",
+    terms_2_text: "Fixed fee or hourly rate. Advance payment is required before work begins.",
+    terms_3_title: "3. Confidentiality",
+    terms_3_text: "Information received from the client will not be disclosed without consent, except as required by law.",
+    terms_4_title: "4. Liability",
+    terms_4_text: "Liability is limited to the amount of fees actually paid for the relevant stage of work.",
 
 
     privacy_title: "Privacy Policy",
-privacy_intro: "This policy describes what data we collect, how we use it, and how we ensure its security.",
-privacy_1_title: "1. Data collection",
-privacy_1_text: "We collect contact details (name, email, phone) and project information you provide in forms.",
-privacy_2_title: "2. Use",
-privacy_2_text: "The data is used for communication, preparing proposals, and providing services. It is not shared with third parties without legal basis.",
-privacy_3_title: "3. Storage and security",
-privacy_3_text: "We apply organizational and technical security measures. Retention periods comply with contract and law requirements.",
-privacy_4_title: "4. Your rights",
-privacy_4_text: "You can request access, correction, or deletion of your data: ",
-privacy_contact: "contact us",
+    privacy_intro: "This policy describes what data we collect, how we use it, and how we ensure its security.",
+    privacy_1_title: "1. Data collection",
+    privacy_1_text: "We collect contact details (name, email, phone) and project information you provide in forms.",
+    privacy_2_title: "2. Use",
+    privacy_2_text: "The data is used for communication, preparing proposals, and providing services. It is not shared with third parties without legal basis.",
+    privacy_3_title: "3. Storage and security",
+    privacy_3_text: "We apply organizational and technical security measures. Retention periods comply with contract and law requirements.",
+    privacy_4_title: "4. Your rights",
+    privacy_4_text: "You can request access, correction, or deletion of your data: ",
+    privacy_contact: "contact us",
 
     // hero
     hero_badge: "European perspective • Middle East Growth • Asian Opportunities",
@@ -389,43 +391,45 @@ privacy_contact: "contact us",
     location_vilnius: "Vilnius, Lithuania",
   },
 
- ru: {
-  about_title: "О компании ProLegall",
-about_intro: "Мы — бутиковая юридическая компания, оказывающая услуги в области международного структурирования бизнеса, семейного и наследственного права, миграции и комплаенса. Мы сопровождаем клиентов в Европе и странах Персидского залива, создавая прозрачные решения, соответствующие требованиям банков и регуляторов с самого первого шага.",
-about_highlight_juris: "юрисдикций",
-about_highlight_cases: "успешных кейсов",
-about_highlight_years: "лет практики",
-about_approach_title: "Подход",
-about_approach_b1: "Аналитика перед стартом: проверяем санкционные риски, банковскую приемлемость и требования к substance.",
-about_approach_b2: "Комплаенс-by-design: документы и структура готовятся с учётом будущих проверок.",
-about_approach_b3: "Наш подход — шаг за шагом: быстрое решение задач и комплексное сопровождение.",
-about_team_title: "Команда",
-about_team_text: "Небольшая кросс-юрисдикционная команда, привлекаем локальных консультантов там, где нужен лицензированный представитель.",
+  ru: {
+    send: "Отправить",
+    contact_consent: "Отправляя, вы соглашаетесь с политикой конфиденциальности.",
+    about_title: "О компании ProLegall",
+    about_intro: "Мы — бутиковая юридическая компания, оказывающая услуги в области международного структурирования бизнеса, семейного и наследственного права, миграции и комплаенса. Мы сопровождаем клиентов в Европе и странах Персидского залива, создавая прозрачные решения, соответствующие требованиям банков и регуляторов с самого первого шага.",
+    about_highlight_juris: "юрисдикций",
+    about_highlight_cases: "успешных кейсов",
+    about_highlight_years: "лет практики",
+    about_approach_title: "Подход",
+    about_approach_b1: "Аналитика перед стартом: проверяем санкционные риски, банковскую приемлемость и требования к substance.",
+    about_approach_b2: "Комплаенс-by-design: документы и структура готовятся с учётом будущих проверок.",
+    about_approach_b3: "Наш подход — шаг за шагом: быстрое решение задач и комплексное сопровождение.",
+    about_team_title: "Команда",
+    about_team_text: "Небольшая кросс-юрисдикционная команда, привлекаем локальных консультантов там, где нужен лицензированный представитель.",
 
-  nav_blog: "Блог",
-    quiz_title: "Юрисдикция за одну минуту", 
-      location_vilnius: "Вильнюс, Литва",
-      privacy_title: "Политика конфиденциальности",
-privacy_intro: "Эта политика описывает, какие данные мы собираем, как используем и как обеспечиваем их безопасность.",
-privacy_1_title: "1. Сбор данных",
-privacy_1_text: "Мы собираем контактные данные (имя, email, телефон) и сведения о проекте, которые вы указываете в формах.",
-privacy_2_title: "2. Использование",
-privacy_2_text: "Данные используются для коммуникации, подготовки предложений и оказания услуг. Не передаются третьим лицам без правового основания.",
-privacy_3_title: "3. Хранение и безопасность",
-privacy_3_text: "Применяем организационные и технические меры защиты. Сроки хранения соответствуют требованиям договора и закона.",
-privacy_4_title: "4. Ваши права",
-privacy_4_text: "Вы можете запросить доступ, исправление или удаление данных: ",
-privacy_contact: "связаться с нами",
-terms_title: "Условия оказания услуг",
-terms_intro: "Настоящие условия регулируют порядок оказания юридических услуг ProLegall.",
-terms_1_title: "1. Предмет",
-terms_1_text: "Мы оказываем консультационные и представительные услуги по согласованному ТЗ и смете.",
-terms_2_title: "2. Оплата",
-terms_2_text: "Фиксированная стоимость или почасовая ставка. Аванс обязателен до начала работ.",
-terms_3_title: "3. Конфиденциальность",
-terms_3_text: "Информация, полученная от клиента, не раскрывается без его согласия, за исключением предусмотренных законом случаев.",
-terms_4_title: "4. Ответственность",
-terms_4_text: "Ответственность ограничивается размером фактически уплаченного вознаграждения за соответствующий этап работ.",
+    nav_blog: "Блог",
+    quiz_title: "Юрисдикция за одну минуту",
+    location_vilnius: "Вильнюс, Литва",
+    privacy_title: "Политика конфиденциальности",
+    privacy_intro: "Эта политика описывает, какие данные мы собираем, как используем и как обеспечиваем их безопасность.",
+    privacy_1_title: "1. Сбор данных",
+    privacy_1_text: "Мы собираем контактные данные (имя, email, телефон) и сведения о проекте, которые вы указываете в формах.",
+    privacy_2_title: "2. Использование",
+    privacy_2_text: "Данные используются для коммуникации, подготовки предложений и оказания услуг. Не передаются третьим лицам без правового основания.",
+    privacy_3_title: "3. Хранение и безопасность",
+    privacy_3_text: "Применяем организационные и технические меры защиты. Сроки хранения соответствуют требованиям договора и закона.",
+    privacy_4_title: "4. Ваши права",
+    privacy_4_text: "Вы можете запросить доступ, исправление или удаление данных: ",
+    privacy_contact: "связаться с нами",
+    terms_title: "Условия оказания услуг",
+    terms_intro: "Настоящие условия регулируют порядок оказания юридических услуг ProLegall.",
+    terms_1_title: "1. Предмет",
+    terms_1_text: "Мы оказываем консультационные и представительные услуги по согласованному ТЗ и смете.",
+    terms_2_title: "2. Оплата",
+    terms_2_text: "Фиксированная стоимость или почасовая ставка. Аванс обязателен до начала работ.",
+    terms_3_title: "3. Конфиденциальность",
+    terms_3_text: "Информация, полученная от клиента, не раскрывается без его согласия, за исключением предусмотренных законом случаев.",
+    terms_4_title: "4. Ответственность",
+    terms_4_text: "Ответственность ограничивается размером фактически уплаченного вознаграждения за соответствующий этап работ.",
   },
 
   lt: {
@@ -835,10 +839,10 @@ function ThemeToggle() {
 function TopNav({ t, lang, setLang }) {
   const [open, setOpen] = useState(false);
   const hash = useHashRoute();
-  
+
   const raw = (hash || "#/").replace(/^#/, "");
-const base = raw.split("?")[0].replace(/\/+$/, ""); // strip trailing slashes
-const route = base === "" ? "/" : base;
+  const base = raw.split("?")[0].replace(/\/+$/, ""); // strip trailing slashes
+  const route = base === "" ? "/" : base;
 
   useEffect(() => {
     const onResize = () => setOpen(false);
@@ -846,12 +850,12 @@ const route = base === "" ? "/" : base;
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
- const NAV = [
-  { href: "#/services", label: t("nav_services", "Услуги") },
-  { href: "#/about",    label: t("nav_about", "О компании") },
-  { href: "#/blog",     label: t("nav_blog", "Блог") },
-  { href: "#/contact",  label: t("nav_contact", "Контакты") },
-];
+  const NAV = [
+    { href: "#/services", label: t("nav_services", "Услуги") },
+    { href: "#/about", label: t("nav_about", "О компании") },
+    { href: "#/blog", label: t("nav_blog", "Блог") },
+    { href: "#/contact", label: t("nav_contact", "Контакты") },
+  ];
 
   return (
     <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/60 dark:bg-gray-900/70 border-b dark:border-gray-800">
@@ -967,9 +971,18 @@ function Footer({ t }) {
                 <Phone className="h-4 w-4" /> WhatsApp / Telegram: +370 619
                 70610
               </li>
-           <li className="flex items-center gap-2">
-  <MapPin className="h-4 w-4" /> {t("location_vilnius", "Vilnius, Lithuania")}
-</li>
+              <a
+                href="https://www.linkedin.com/company/prolegall/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:underline"
+              >
+                <Linkedin className="h-4 w-4" />
+                <span>LinkedIn</span>
+              </a>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" /> {t("location_vilnius", "Vilnius, Lithuania")}
+              </li>
             </ul>
           </div>
           <div>
@@ -1106,66 +1119,66 @@ function HomeHero({ t }) {
                   {t("hero_quick", "Быстрый запрос")}
                 </CardTitle>
               </CardHeader>
-            <CardContent>
-  <form
-    action="https://formsubmit.co/info@prolegall.com"
-    method="POST"
-    className="space-y-3"
-  >
-    {/* FormSubmit settings */}
-    <input type="hidden" name="_subject" value="Quick request: prolegall.com" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="table" />
-    <input
-      type="hidden"
-      name="_next"
-      value={(typeof window !== "undefined"
-        ? window.location.origin
-        : "") + "/#/contact?sent=1"}
-    />
+              <CardContent>
+                <form
+                  action="https://formsubmit.co/info@prolegall.com"
+                  method="POST"
+                  className="space-y-3"
+                >
+                  {/* FormSubmit settings */}
+                  <input type="hidden" name="_subject" value="Quick request: prolegall.com" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input
+                    type="hidden"
+                    name="_next"
+                    value={(typeof window !== "undefined"
+                      ? window.location.origin
+                      : "") + "/#/contact?sent=1"}
+                  />
 
-    <Input
-      name="name"
-      required
-      placeholder={t("hero_name", "Ваше имя")}
-      className="bg-white/95"
-      aria-label={t("hero_name", "Ваше имя")}
-    />
-    <Input
-      name="email"
-      required
-      type="email"
-      placeholder={t("hero_email", "Email")}
-      className="bg-white/95"
-      aria-label="Email"
-    />
-    <Input
-      name="phone"
-      placeholder={t("hero_phone", "Телефон / WhatsApp")}
-      className="bg-white/95"
-      aria-label="Телефон"
-    />
-    <Input
-      name="message"
-      placeholder={t("hero_task", "Кратко о задаче (напр. DMCC холдинг)")}
-      className="bg-white/95"
-      aria-label="Задача"
-    />
+                  <Input
+                    name="name"
+                    required
+                    placeholder={t("hero_name", "Ваше имя")}
+                    className="bg-white/95"
+                    aria-label={t("hero_name", "Ваше имя")}
+                  />
+                  <Input
+                    name="email"
+                    required
+                    type="email"
+                    placeholder={t("hero_email", "Email")}
+                    className="bg-white/95"
+                    aria-label="Email"
+                  />
+                  <Input
+                    name="phone"
+                    placeholder={t("hero_phone", "Телефон / WhatsApp")}
+                    className="bg-white/95"
+                    aria-label="Телефон"
+                  />
+                  <Input
+                    name="message"
+                    placeholder={t("hero_task", "Кратко о задаче (напр. DMCC холдинг)")}
+                    className="bg-white/95"
+                    aria-label="Задача"
+                  />
 
-    <Button
-      type="submit"
-      className="w-full rounded-2xl bg-amber-500 text-black hover:bg-amber-400"
-    >
-      {t("hero_send", "Отправить")}
-    </Button>
-    <p className="text-xs text-gray-600 dark:text-white/80">
-      {t(
-        "hero_consent",
-        "Отправляя, вы соглашаетесь с политикой конфиденциальности."
-      )}
-    </p>
-  </form>
-</CardContent>
+                  <Button
+                    type="submit"
+                    className="w-full rounded-2xl bg-amber-500 text-black hover:bg-amber-400"
+                  >
+                    {t("hero_send", "Отправить")}
+                  </Button>
+                  <p className="text-xs text-gray-600 dark:text-white/80">
+                    {t(
+                      "hero_consent",
+                      "Отправляя, вы соглашаетесь с политикой конфиденциальности."
+                    )}
+                  </p>
+                </form>
+              </CardContent>
 
             </div>
           </motion.div>
@@ -1386,8 +1399,8 @@ function QuizTeaser({ t }) {
               ))}
             </div>
             <div className="mt-6 flex gap-3">
-             <Button as="a" href="#/quiz" className="rounded-2xl">
-    {t("quiz_take", "Пройти тест")}
+              <Button as="a" href="#/quiz" className="rounded-2xl">
+                {t("quiz_take", "Пройти тест")}
               </Button>
               <Button variant="ghost" className="rounded-2xl">
                 {t("quiz_example", "Смотреть пример")}
@@ -1433,9 +1446,9 @@ function QuizTeaser({ t }) {
                   </ul>
                 </div>
 
-               <Button as="a" href="#/contact" className="w-full rounded-2xl">
-                   {t("quiz_get", "Получить подробный отчёт")}
-               </Button>
+                <Button as="a" href="#/contact" className="w-full rounded-2xl">
+                  {t("quiz_get", "Получить подробный отчёт")}
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -1515,73 +1528,89 @@ function CasesList({ t }) {
 
 function JurisdictionInOneMinute({ t, lang }) {
   const L = (en, ru) => (lang === "ru" ? ru : en);
-   const steps = [
-  { key: "goal", label: L("Registration goal","Цель регистрации"), required: true, options: [
-     { value: "operate",   label: L("Operating company (services/trading)","Операционная компания (услуги/торговля)") },
-     { value: "holding",   label: L("Holding / investments","Холдинг / инвестиции") },
-     { value: "fintech",   label: L("Fintech / regulated services","Финтех / регулируемые услуги") },
-     { value: "consulting",label: L("Consulting / IT / digital","Консалтинг / IT / цифровые услуги") },
-   ]},
-  { key: "region", label: L("Preferred region","Предпочтительный регион"), required: true, options: [
-     { value: "eu",   label: L("Europe","Европа") },
-     { value: "gulf", label: L("Gulf (UAE, Bahrain, Oman, Qatar)","Персидский залив (ОАЭ, Бахрейн, Оман, Катар)") },
-     { value: "asia", label: L("Asia (Singapore, Malaysia)","Азия (Сингапур, Малайзия)") },
-     { value: "cis",  label: L("CIS countries","Страны СНГ") },
-   ]},
-     { key: "priority", label: L("Key priority","Ключевой приоритет"), required: true, options: [
-     { value: "tax",        label: L("Tax efficiency","Налоговая эффективность") },
-     { value: "reputation", label: L("Reputation & bank access","Репутация и доступ к банкам") },
-     { value: "speed",      label: L("Speed & simplicity","Скорость и простота запуска") },
-     { value: "eu_access",  label: L("EU access & transparency","Доступ к ЕС и прозрачность") },
-   ]},
-  { key: "presence", label: L("On-site presence/staff?","Планируете сотрудников/присутствие на месте?"), required: true, options: [
-     { value: "none", label: L("No, fully remote","Нет, полностью удалённо") },
-     { value: "few",  label: L("1–3 people / minimal presence","1–3 человека / минимальное присутствие") },
-     { value: "many", label: L("4+ staff / office","4+ сотрудников / офис") },
-   ]},
-  { key: "timeline", label: L("Launch timing","Сроки запуска"), required: true, options: [
-     { value: "fast",   label: L("Up to 2 weeks","До 2 недель") },
-     { value: "normal", label: L("2–6 weeks","2–6 недель") },
-     { value: "flex",   label: L("OK to wait 6+ weeks","Готов ждать более 6 недель") },
-   ]},
-   { key: "industry", label: L("Industry","Сфера деятельности"), required: true, options: [
-     { value: "it",            label: L("IT / digital services","IT / цифровые услуги") },
-     { value: "trading",       label: L("Trading / logistics","Торговля / логистика") },
-     { value: "manufacturing", label: L("Manufacturing / equipment","Производство / оборудование") },
-     { value: "investments",   label: L("Investments / holding","Инвестиции / холдинг") },
-   ]},
-    { key: "banking", label: L("Banking need","Банковская потребность"), required: true, options: [
-     { value: "local",      label: L("Need local bank account","Нужен местный банковский счёт") },
-     { value: "fintech_ok", label: L("Fintech/international is OK","Подойдёт финтех/междунар. банк") },
-     { value: "external",   label: L("Account opened abroad","Счёт открыт за рубежом") },
-   ]},
-{ key: "budget", label: L("Budget for setup + first year","Бюджет на запуск и первый год сопровождения"), required: true, options: [
-     { value: "5-10", label: "€5 000 – €10 000" },
-     { value: "10-20", label: "€10 000 – €20 000" },
-     { value: "20-40", label: "€20 000 – €40 000" },
-     { value: "40+",  label: "€40 000+" },
-   ]},
+  const steps = [
+    {
+      key: "goal", label: L("Registration goal", "Цель регистрации"), required: true, options: [
+        { value: "operate", label: L("Operating company (services/trading)", "Операционная компания (услуги/торговля)") },
+        { value: "holding", label: L("Holding / investments", "Холдинг / инвестиции") },
+        { value: "fintech", label: L("Fintech / regulated services", "Финтех / регулируемые услуги") },
+        { value: "consulting", label: L("Consulting / IT / digital", "Консалтинг / IT / цифровые услуги") },
+      ]
+    },
+    {
+      key: "region", label: L("Preferred region", "Предпочтительный регион"), required: true, options: [
+        { value: "eu", label: L("Europe", "Европа") },
+        { value: "gulf", label: L("Gulf (UAE, Bahrain, Oman, Qatar)", "Персидский залив (ОАЭ, Бахрейн, Оман, Катар)") },
+        { value: "asia", label: L("Asia (Singapore, Malaysia)", "Азия (Сингапур, Малайзия)") },
+        { value: "cis", label: L("CIS countries", "Страны СНГ") },
+      ]
+    },
+    {
+      key: "priority", label: L("Key priority", "Ключевой приоритет"), required: true, options: [
+        { value: "tax", label: L("Tax efficiency", "Налоговая эффективность") },
+        { value: "reputation", label: L("Reputation & bank access", "Репутация и доступ к банкам") },
+        { value: "speed", label: L("Speed & simplicity", "Скорость и простота запуска") },
+        { value: "eu_access", label: L("EU access & transparency", "Доступ к ЕС и прозрачность") },
+      ]
+    },
+    {
+      key: "presence", label: L("On-site presence/staff?", "Планируете сотрудников/присутствие на месте?"), required: true, options: [
+        { value: "none", label: L("No, fully remote", "Нет, полностью удалённо") },
+        { value: "few", label: L("1–3 people / minimal presence", "1–3 человека / минимальное присутствие") },
+        { value: "many", label: L("4+ staff / office", "4+ сотрудников / офис") },
+      ]
+    },
+    {
+      key: "timeline", label: L("Launch timing", "Сроки запуска"), required: true, options: [
+        { value: "fast", label: L("Up to 2 weeks", "До 2 недель") },
+        { value: "normal", label: L("2–6 weeks", "2–6 недель") },
+        { value: "flex", label: L("OK to wait 6+ weeks", "Готов ждать более 6 недель") },
+      ]
+    },
+    {
+      key: "industry", label: L("Industry", "Сфера деятельности"), required: true, options: [
+        { value: "it", label: L("IT / digital services", "IT / цифровые услуги") },
+        { value: "trading", label: L("Trading / logistics", "Торговля / логистика") },
+        { value: "manufacturing", label: L("Manufacturing / equipment", "Производство / оборудование") },
+        { value: "investments", label: L("Investments / holding", "Инвестиции / холдинг") },
+      ]
+    },
+    {
+      key: "banking", label: L("Banking need", "Банковская потребность"), required: true, options: [
+        { value: "local", label: L("Need local bank account", "Нужен местный банковский счёт") },
+        { value: "fintech_ok", label: L("Fintech/international is OK", "Подойдёт финтех/междунар. банк") },
+        { value: "external", label: L("Account opened abroad", "Счёт открыт за рубежом") },
+      ]
+    },
+    {
+      key: "budget", label: L("Budget for setup + first year", "Бюджет на запуск и первый год сопровождения"), required: true, options: [
+        { value: "5-10", label: "€5 000 – €10 000" },
+        { value: "10-20", label: "€10 000 – €20 000" },
+        { value: "20-40", label: "€20 000 – €40 000" },
+        { value: "40+", label: "€40 000+" },
+      ]
+    },
   ];
 
   const JURIS = {
     eu: {
       lite: [
-        { code: "LT-MB",  name: L("Lithuania (MB)","Литва (MB)"),       why: L("EU access, transparency, fast for IT/services","Доступ к ЕС, прозрачность, быстрый запуск для услуг и IT"), budget: "€5k–€10k" },
-        { code: "EE-OU",  name: L("Estonia (OÜ)","Эстония (OÜ)"),       why: L("E-governance, convenient for remote IT/consulting","Электронное управление, удобно для удалённых IT/консалтинга"), budget: "€5k–€10k" },
+        { code: "LT-MB", name: L("Lithuania (MB)", "Литва (MB)"), why: L("EU access, transparency, fast for IT/services", "Доступ к ЕС, прозрачность, быстрый запуск для услуг и IT"), budget: "€5k–€10k" },
+        { code: "EE-OU", name: L("Estonia (OÜ)", "Эстония (OÜ)"), why: L("E-governance, convenient for remote IT/consulting", "Электронное управление, удобно для удалённых IT/консалтинга"), budget: "€5k–€10k" },
       ],
       plus: [
-        { code: "CY-LTD", name: L("Cyprus (LTD)","Кипр (LTD)"),          why: L("Holdings, dividends, treaty network, reputation","Холдинги, дивиденды, договорная сеть, хорошая репутация"), budget: "€10k–€20k" },
+        { code: "CY-LTD", name: L("Cyprus (LTD)", "Кипр (LTD)"), why: L("Holdings, dividends, treaty network, reputation", "Холдинги, дивиденды, договорная сеть, хорошая репутация"), budget: "€10k–€20k" },
       ],
     },
     gulf: {
       lite: [
-        { code: "UAE-FZ",  name: L("UAE (Free Zone: IFZA / RAKEZ / Meydan)", "ОАЭ (Free Zone: IFZA / RAKEZ / Meydan)"), why: L("Fast launch for services & e-commerce, flexible", "Быстрый запуск услуг и e-commerce, гибкость"), budget: "€5k–€10k" },
-        { code: "BHR-CR",  name: L("Bahrain (CR)", "Бахрейн (CR)"),         why: L("Reputable for finance/investment structures, local banks", "Репутация для финансовых/инвест. структур, локальные банки"), budget: "€10k–€20k" },
+        { code: "UAE-FZ", name: L("UAE (Free Zone: IFZA / RAKEZ / Meydan)", "ОАЭ (Free Zone: IFZA / RAKEZ / Meydan)"), why: L("Fast launch for services & e-commerce, flexible", "Быстрый запуск услуг и e-commerce, гибкость"), budget: "€5k–€10k" },
+        { code: "BHR-CR", name: L("Bahrain (CR)", "Бахрейн (CR)"), why: L("Reputable for finance/investment structures, local banks", "Репутация для финансовых/инвест. структур, локальные банки"), budget: "€10k–€20k" },
       ],
       plus: [
-        { code: "UAE-DMCC", name: L("UAE (DMCC)", "ОАЭ (DMCC)"),           why: L("Trading/commodities, prestige, ecosystem", "Торговля/коммодитиз, престиж, экосистема"), budget: "€10k–€20k" },
-        { code: "OMN-LLC",  name: L("Oman (LLC)", "Оман (LLC)"),            why: L("For physical presence and manufacturing", "При физическом присутствии и производстве"), budget: "€20k–€40k" },
-        { code: "QAT-LLC",  name: L("Qatar (LLC)", "Катар (LLC)"),          why: L("Projects with local presence, contracting", "Проекты с местным присутствием, контрактинг"), budget: "€20k–€40k" },
+        { code: "UAE-DMCC", name: L("UAE (DMCC)", "ОАЭ (DMCC)"), why: L("Trading/commodities, prestige, ecosystem", "Торговля/коммодитиз, престиж, экосистема"), budget: "€10k–€20k" },
+        { code: "OMN-LLC", name: L("Oman (LLC)", "Оман (LLC)"), why: L("For physical presence and manufacturing", "При физическом присутствии и производстве"), budget: "€20k–€40k" },
+        { code: "QAT-LLC", name: L("Qatar (LLC)", "Катар (LLC)"), why: L("Projects with local presence, contracting", "Проекты с местным присутствием, контрактинг"), budget: "€20k–€40k" },
       ],
     },
     asia: {
@@ -1589,13 +1618,13 @@ function JurisdictionInOneMinute({ t, lang }) {
         { code: "MYS-SDN", name: L("Malaysia (Sdn Bhd)", "Малайзия (Sdn Bhd)"), why: L("Cheaper than Singapore, services & trading", "Бюджетнее Сингапура, услуги и трейдинг"), budget: "€10k–€20k" },
       ],
       plus: [
-        { code: "SG-PTE",  name: L("Singapore (Pte Ltd)", "Сингапур (Pte Ltd)"), why: L("High reputation, banking, holdings & IT", "Высокая репутация, банки, холдинги и IT"), budget: "€20k–€40k" },
+        { code: "SG-PTE", name: L("Singapore (Pte Ltd)", "Сингапур (Pte Ltd)"), why: L("High reputation, banking, holdings & IT", "Высокая репутация, банки, холдинги и IT"), budget: "€20k–€40k" },
       ],
     },
     cis: {
       lite: [
         { code: "KZ-LLP", name: L("Kazakhstan (LLP / AIFC)", "Казахстан (ТОО / AIFC)"), why: L("Flexible jurisdiction for trading and IT", "Гибкая юрисдикция для торговли и IT"), budget: "€5k–€10k" },
-        { code: "AM-LLC", name: L("Armenia (LLC)", "Армения (LLC)"),        why: L("Good for services/IT, moderate requirements", "Подходит для услуг/IT, умеренные требования"), budget: "€5k–€10k" },
+        { code: "AM-LLC", name: L("Armenia (LLC)", "Армения (LLC)"), why: L("Good for services/IT, moderate requirements", "Подходит для услуг/IT, умеренные требования"), budget: "€5k–€10k" },
       ],
       plus: [],
     },
@@ -1632,11 +1661,11 @@ function JurisdictionInOneMinute({ t, lang }) {
 
     const budgetTierOrder = ["5-10", "10-20", "20-40", "40+"];
     const chosenTierIndex = Math.max(budgetTierOrder.indexOf(answers.budget ?? "5-10"), 0);
-   const userBudgetText = {
-      "5-10": L("from €5,000",  "от €5 000"),
-      "10-20": L("from €10,000","от €10 000"),
-      "20-40": L("from €20,000","от €20 000"),
-      "40+":  L("from €40,000","от €40 000"),
+    const userBudgetText = {
+      "5-10": L("from €5,000", "от €5 000"),
+      "10-20": L("from €10,000", "от €10 000"),
+      "20-40": L("from €20,000", "от €20 000"),
+      "40+": L("from €40,000", "от €40 000"),
     }[budgetTierOrder[chosenTierIndex]];
 
     return { recommendations: uniq.slice(0, 3), userBudgetText };
@@ -1666,9 +1695,9 @@ function JurisdictionInOneMinute({ t, lang }) {
   return (
     <div className="w-full max-w-2xl mx-auto px-4 py-8">
       <div className="mb-6 text-center">
-        <h1 className="text-2xl md:text-3xl font-semibold">{t("quiz_title","Юрисдикция за одну минуту")}</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold">{t("quiz_title", "Юрисдикция за одну минуту")}</h1>
         <p className="text-sm md:text-base text-gray-600 mt-2">
-           {t("quiz_desc","Ответьте на 8 коротких вопросов — получите 2–3 подходящие юрисдикции с ориентировочным бюджетом (от €5 000).")}
+          {t("quiz_desc", "Ответьте на 8 коротких вопросов — получите 2–3 подходящие юрисдикции с ориентировочным бюджетом (от €5 000).")}
         </p>
       </div>
 
@@ -1687,20 +1716,19 @@ function JurisdictionInOneMinute({ t, lang }) {
               transition={{ duration: 0.2 }}
               className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-800 p-5"
             >
-             <div className="mb-1 text-xs text-gray-500">
-   {L("Question","Вопрос")} {current + 1} {L("of","из")} {steps.length}
- </div>
+              <div className="mb-1 text-xs text-gray-500">
+                {L("Question", "Вопрос")} {current + 1} {L("of", "из")} {steps.length}
+              </div>
               <h2 className="text-lg font-medium mb-4">{steps[current].label}</h2>
 
               <div className="space-y-3">
                 {steps[current].options.map((opt) => (
                   <label
                     key={opt.value}
-                    className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition ${
-                      answers[steps[current].key] === opt.value
+                    className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition ${answers[steps[current].key] === opt.value
                         ? "border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20"
                         : "hover:border-gray-400"
-                    }`}
+                      }`}
                   >
                     <input
                       type="radio"
@@ -1716,14 +1744,14 @@ function JurisdictionInOneMinute({ t, lang }) {
 
               <div className="mt-6 flex items-center justify-between">
                 <button className="px-4 py-2 rounded-xl border hover:bg-gray-50 dark:hover:bg-gray-800" onClick={back} disabled={current === 0}>
-                  {L("Back","Назад")}
+                  {L("Back", "Назад")}
                 </button>
                 <button
                   className={`px-5 py-2.5 rounded-xl text-white ${canNext ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-300 cursor-not-allowed"}`}
                   onClick={next}
                   disabled={!canNext}
                 >
-                 {current === steps.length - 1 ? L("View result","Посмотреть результат") : L("Next","Далее")}
+                  {current === steps.length - 1 ? L("View result", "Посмотреть результат") : L("Next", "Далее")}
                 </button>
               </div>
             </motion.div>
@@ -1734,22 +1762,22 @@ function JurisdictionInOneMinute({ t, lang }) {
       {showResult && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}
           className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-800 p-6">
-   <h3 className="text-xl font-semibold mb-2">{L("Your preliminary results","Ваши предварительные результаты")}</h3>
+          <h3 className="text-xl font-semibold mb-2">{L("Your preliminary results", "Ваши предварительные результаты")}</h3>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-         {L("Based on your answers we suggest options. Estimated budget ",
-   "На основе ответов мы подобрали варианты. Бюджет ориентировочно ")}
- {result.userBudgetText}
- {L(" (includes incorporation and basic first-year support).",
-    " (включая регистрацию и базовое сопровождение на первый год).")}
+            {L("Based on your answers we suggest options. Estimated budget ",
+              "На основе ответов мы подобрали варианты. Бюджет ориентировочно ")}
+            {result.userBudgetText}
+            {L(" (includes incorporation and basic first-year support).",
+              " (включая регистрацию и базовое сопровождение на первый год).")}
           </p>
 
           <div className="grid gap-4">
             {result.recommendations.length === 0 && (
               <div className="p-4 border rounded-xl text-gray-700 dark:text-gray-200">
-{L(
-   "No exact matches yet. Try changing region/priority or contact us — we’ll tailor a route manually.",
-   "Пока нет точных совпадений. Попробуйте изменить регион или приоритеты, либо свяжитесь с нами — подберём решение вручную."
-)}              </div>
+                {L(
+                  "No exact matches yet. Try changing region/priority or contact us — we’ll tailor a route manually.",
+                  "Пока нет точных совпадений. Попробуйте изменить регион или приоритеты, либо свяжитесь с нами — подберём решение вручную."
+                )}              </div>
             )}
             {result.recommendations.map((j) => (
               <div key={j.code} className="p-4 border rounded-2xl">
@@ -1765,18 +1793,18 @@ function JurisdictionInOneMinute({ t, lang }) {
           </div>
 
           <div className="mt-6 grid md:grid-cols-2 gap-3">
-            <button className="px-4 py-3 rounded-xl border hover:bg-gray-50 dark:hover:bg-gray-800" onClick={reset}>{L("Restart quiz","Пройти заново")}
-</button>
+            <button className="px-4 py-3 rounded-xl border hover:bg-gray-50 dark:hover:bg-gray-800" onClick={reset}>{L("Restart quiz", "Пройти заново")}
+            </button>
             <a href="#/contact" className="px-4 py-3 rounded-xl text-center text-white bg-indigo-600 hover:bg-indigo-700">
-              {L("Get detailed estimate and timeline","Получить детальный расчёт и таймлайн")}
+              {L("Get detailed estimate and timeline", "Получить детальный расчёт и таймлайн")}
             </a>
           </div>
 
           <p className="text-xs text-gray-500 mt-4">
             {L(
-   "*This result is preliminary and not legal advice. Final scope, timing and cost depend on activity type, KYC/AML and banking procedures.",
-   "*Данный результат носит ориентировочный характер и не является юридической консультацией. Итоговые сроки, стоимость и требования зависят от вида деятельности, KYC/AML и банковских процедур."
- )}
+              "*This result is preliminary and not legal advice. Final scope, timing and cost depend on activity type, KYC/AML and banking procedures.",
+              "*Данный результат носит ориентировочный характер и не является юридической консультацией. Итоговые сроки, стоимость и требования зависят от вида деятельности, KYC/AML и банковских процедур."
+            )}
           </p>
         </motion.div>
       )}
@@ -1828,7 +1856,7 @@ function QuizPage({ t, lang }) {
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-           <JurisdictionInOneMinute t={t} lang={lang} />
+          <JurisdictionInOneMinute t={t} lang={lang} />
         </div>
       </section>
     </Page>
@@ -1870,7 +1898,7 @@ function CTA({ t }) {
    Routes
 ----------------------------------------------------------- */
 // --- Home page ---
-function HomePage({ t, lang }) {  
+function HomePage({ t, lang }) {
   return (
     <Page>
       <HomeHero t={t} />
@@ -1879,7 +1907,7 @@ function HomePage({ t, lang }) {
       <Stats t={t} />
       <QuizTeaser t={t} />
       <CasesList t={t} />
-      <Blog t={t} lang={lang} />   
+      <Blog t={t} lang={lang} />
       <CTA t={t} />
     </Page>
   );
@@ -1937,7 +1965,7 @@ function AboutPage({ t }) {
   const highlights = [
     { k: "20+", v: t("about_highlight_juris", "юрисдикций") },
     { k: "50+", v: t("about_highlight_cases", "успешных кейсов") },
-    { k: "5+",  v: t("about_highlight_years", "лет практики") },
+    { k: "5+", v: t("about_highlight_years", "лет практики") },
   ];
 
   return (
@@ -2005,11 +2033,11 @@ function ServicesPage({ t, lang }) {
   const L = (en, ru) => (lang === "ru" ? ru : en);
   const tabs = [
     { id: "incorporation", title: t("svc_incorp_title", "Регистрация компаний"), icon: <Building2 className="h-4 w-4" /> },
-    { id: "tax",          title: t("svc_tax_title", "Структуры и налоги"),       icon: <Landmark className="h-4 w-4" /> },
-    { id: "family",       title: t("svc_family_title", "Семейное/наследственное"), icon: <ScrollText className="h-4 w-4" /> },
-    { id: "contracts",    title: t("svc_contracts_title", "Договоры и сопровождение"), icon: <FileText className="h-4 w-4" /> },
-    { id: "compliance",   title: t("svc_compliance_title", "Комплаенс"),         icon: <ShieldCheck className="h-4 w-4" /> },
-    { id: "disputes",     title: t("svc_disputes_title", "Миграция"),            icon: <Gavel className="h-4 w-4" /> },
+    { id: "tax", title: t("svc_tax_title", "Структуры и налоги"), icon: <Landmark className="h-4 w-4" /> },
+    { id: "family", title: t("svc_family_title", "Семейное/наследственное"), icon: <ScrollText className="h-4 w-4" /> },
+    { id: "contracts", title: t("svc_contracts_title", "Договоры и сопровождение"), icon: <FileText className="h-4 w-4" /> },
+    { id: "compliance", title: t("svc_compliance_title", "Комплаенс"), icon: <ShieldCheck className="h-4 w-4" /> },
+    { id: "disputes", title: t("svc_disputes_title", "Миграция"), icon: <Gavel className="h-4 w-4" /> },
   ];
   const getTabFromHash = () =>
     new URLSearchParams((window.location.hash.split("?")[1]) || "").get("tab") ||
@@ -2024,7 +2052,7 @@ function ServicesPage({ t, lang }) {
   const content = useMemo(
     () => ({
       incorporation: {
-         lead: L(
+        lead: L(
           "Company incorporations in Europe, the Gulf and Asia. Key lines: Lithuania, Netherlands, Estonia, Germany, UK, UAE, Bahrain, Qatar, Singapore, Hong Kong, etc.",
           "Регистрация компаний в Европе, на Ближнем Востоке и в Азии. Основные направления: Литва, Нидерланды, Эстония, Германия, Великобритания, ОАЭ, Бахрейн, Катар, Сингапур, Гонконг и др."
         ),
@@ -2037,7 +2065,7 @@ function ServicesPage({ t, lang }) {
         ],
       },
       tax: {
-       lead: L(
+        lead: L(
           "We design corporate structures for asset protection and tax efficiency, aligned with treaties and local rules.",
           "Разрабатываем корпоративные структуры для защиты активов и оптимизации налогообложения с учётом международных соглашений и местных правил."
         ),
@@ -2050,7 +2078,7 @@ function ServicesPage({ t, lang }) {
         ],
       },
       family: {
-          lead: L(
+        lead: L(
           "Solutions for asset protection and succession planning across jurisdictions.",
           "Решения для защиты капитала и планирования наследства в разных странах."
         ),
@@ -2063,7 +2091,7 @@ function ServicesPage({ t, lang }) {
         ],
       },
       contracts: {
-          lead: L(
+        lead: L(
           "We draft contracts and corporate docs in a clear, modern format.",
           "Готовим договоры и корпоративные документы в современном и удобном формате."
         ),
@@ -2089,7 +2117,7 @@ function ServicesPage({ t, lang }) {
         ],
       },
       disputes: {
-          lead: L(
+        lead: L(
           "We help obtain long-term visas and residence permits in Europe and the Gulf.",
           "Помогаем получить долгосрочные визы и виды на жительство в странах Европы и Персидского залива."
         ),
@@ -2111,7 +2139,7 @@ function ServicesPage({ t, lang }) {
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-           <h1 className="text-3xl sm:text-4xl font-semibold">{t("services_title","Услуги")}</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold">{t("services_title", "Услуги")}</h1>
           <div className="mt-6 flex flex-wrap gap-2">
             {tabs.map((t) => (
               <a
@@ -2120,9 +2148,9 @@ function ServicesPage({ t, lang }) {
                 className={cx(
                   "px-3 py-2 rounded-xl text-sm border inline-flex items-center",
                   tab === t.id
-                  ? "bg-purple-700 text-white border-purple-700"
-     : "bg-white text-gray-900 hover:bg-gray-50 border-gray-200 " +
-       "dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:border-gray-700"
+                    ? "bg-purple-700 text-white border-purple-700"
+                    : "bg-white text-gray-900 hover:bg-gray-50 border-gray-200 " +
+                    "dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:border-gray-700"
                 )}
               >
                 {t.icon}
@@ -2143,11 +2171,11 @@ function ServicesPage({ t, lang }) {
               <div>
                 <div className="rounded-2xl bg-purple-50 dark:bg-purple-900/30 p-4">
                   <div className="text-sm text-gray-600 dark:text-gray-200">
-                    {L("Estimated price","Ориентировочная стоимость")}
+                    {L("Estimated price", "Ориентировочная стоимость")}
                   </div>
                   <div className="text-2xl font-semibold mt-1">{active.price}</div>
-                   <Button as="a" href="#/contact" className="w-full mt-4">
-                    {L("Request estimate","Запросить смету")}
+                  <Button as="a" href="#/contact" className="w-full mt-4">
+                    {L("Request estimate", "Запросить смету")}
                   </Button>
                 </div>
               </div>
@@ -2192,68 +2220,68 @@ function ContactPage({ t }) {
             {t("contacts_title", "Контакты")}
           </h1>
           <div className="mt-6 grid lg:grid-cols-3 gap-6">
-           <Card className="lg:col-span-2">
-  <CardHeader>
-    <CardTitle>{t("write_us", "Напишите нам")}</CardTitle>
-  </CardHeader>
-  <CardContent className="space-y-3">
-    {/* Success banner if redirected with ?sent=1 */}
-    <ContactSuccessBanner />
+            <Card className="lg:col-span-2">
+              <CardHeader>
+                <CardTitle>{t("write_us", "Напишите нам")}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {/* Success banner if redirected with ?sent=1 */}
+                <ContactSuccessBanner />
 
-    <form
-      action="https://formsubmit.co/info@prolegall.com"
-      method="POST"
-      className="space-y-3"
-    >
-      {/* FormSubmit settings */}
-      <input type="hidden" name="_subject" value="Contact form: prolegall.com" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-      <input
-        type="hidden"
-        name="_next"
-        value={(typeof window !== "undefined"
-          ? window.location.origin
-          : "") + "/#/contact?sent=1"}
-      />
+                <form
+                  action="https://formsubmit.co/info@prolegall.com"
+                  method="POST"
+                  className="space-y-3"
+                >
+                  {/* FormSubmit settings */}
+                  <input type="hidden" name="_subject" value="Contact form: prolegall.com" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input
+                    type="hidden"
+                    name="_next"
+                    value={(typeof window !== "undefined"
+                      ? window.location.origin
+                      : "") + "/#/contact?sent=1"}
+                  />
 
-  <div className="grid sm:grid-cols-2 gap-3">
-   <Input
-     name="name"
-     required
-     placeholder={t("hero_name", "Имя")}
-     aria-label={t("hero_name", "Имя")}
-   />
-   <Input
-     name="email"
-     required
-     type="email"
-     placeholder={t("hero_email", "Email")}
-     aria-label="Email"
-   />
- </div>
- <Input
-   name="phone"
-   placeholder={t("hero_phone", "Телефон / Telegram / WhatsApp")}
-   aria-label={t("hero_phone", "Телефон")}
- />
- <Textarea
-   name="message"
-   required
-   placeholder={t("hero_task", "Кратко опишите задачу")}
-   aria-label={t("hero_task", "Сообщение")}
- />
-      <div className="flex items-center gap-3">
-        <Button type="submit" className="rounded-2xl">
-          {t("send", "Отправить")}
-        </Button>
-        <span className="text-xs text-gray-500">
-          Отправляя, вы соглашаетесь с политикой конфиденциальности.
-        </span>
-      </div>
-    </form>
-  </CardContent>
-</Card>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <Input
+                      name="name"
+                      required
+                      placeholder={t("hero_name", "Имя")}
+                      aria-label={t("hero_name", "Имя")}
+                    />
+                    <Input
+                      name="email"
+                      required
+                      type="email"
+                      placeholder={t("hero_email", "Email")}
+                      aria-label="Email"
+                    />
+                  </div>
+                  <Input
+                    name="phone"
+                    placeholder={t("hero_phone", "Телефон / Telegram / WhatsApp")}
+                    aria-label={t("hero_phone", "Телефон")}
+                  />
+                  <Textarea
+                    name="message"
+                    required
+                    placeholder={t("hero_task", "Кратко опишите задачу")}
+                    aria-label={t("hero_task", "Сообщение")}
+                  />
+                  <div className="flex items-center gap-3">
+                    <Button type="submit" className="rounded-2xl">
+                      {t("send", "Send")}
+                    </Button>
+                    <span className="text-xs text-gray-500">
+                      {t("contact_consent", "By sending, you agree to the privacy policy.")}
+                    </span>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
 
             <Card>
               <CardHeader>
@@ -2267,10 +2295,16 @@ function ContactPage({ t }) {
                   <Phone className="h-4 w-4" /> +370 619 70610 (TG/WA)
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" /> Вильнюс, Литва
+                  <MapPin className="h-4 w-4" /> {t("location_vilnius", "Vilnius, Lithuania")}
                 </div>
-                <a className="inline-flex items-center gap-2 hover:underline" href="#/">
-                  <Linkedin className="h-4 w-4" /> LinkedIn
+                <a
+                  href="https://www.linkedin.com/company/prolegall/posts/?feedView=all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:underline"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  <span>LinkedIn</span>
                 </a>
               </CardContent>
             </Card>
