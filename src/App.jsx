@@ -1366,17 +1366,33 @@ function Stats({ t }) {
     </section>
   );
 }
-
 function SecretPage() {
   const [count, setCount] = useState(null);
   const [err, setErr] = useState("");
 
   useEffect(() => {
-    const url = "https://api.countapi.xyz/get/prolegall.com/site_visits";
-    fetch(url)
-      .then(r => r.json())
-      .then(d => setCount(typeof d.value === "number" ? d.value : 0))
-      .catch(() => setErr("N/A"));
+    const COUNT_NS = window.location.hostname.endsWith("prolegall.com")
+      ? "prolegall.com"
+      : "prolegall.dev";
+
+    const getCount = () =>
+      fetch(`https://api.countapi.xyz/get/${COUNT_NS}/site_visits`, {
+        mode: "cors",
+        credentials: "omit",
+        cache: "no-store",
+      })
+        .then((r) => (r.ok ? r.json() : Promise.reject(r)))
+        .then((d) => setCount(typeof d.value === "number" ? d.value : 0));
+
+    // Try to read; if missing or blocked, create then read.
+    getCount().catch(() =>
+      fetch(
+        `https://api.countapi.xyz/create?namespace=${COUNT_NS}&key=site_visits&value=0`,
+        { mode: "cors", credentials: "omit", cache: "no-store" }
+      )
+        .then(() => getCount())
+        .catch(() => setErr("N/A"))
+    );
   }, []);
 
   return (
@@ -1384,9 +1400,8 @@ function SecretPage() {
       <div className="min-h-[60vh] grid place-items-center">
         <div className="text-center">
           <div className="text-7xl font-bold tabular-nums">
-            {count !== null ? count : (err || "…")}
+            {count ?? (err || "…")}
           </div>
-          {/* nothing else; stays "secret" */}
         </div>
       </div>
     </Page>
