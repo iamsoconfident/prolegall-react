@@ -1367,6 +1367,33 @@ function Stats({ t }) {
   );
 }
 
+function SecretPage() {
+  const [count, setCount] = useState(null);
+  const [err, setErr] = useState("");
+
+  useEffect(() => {
+    const url = "https://api.countapi.xyz/get/prolegall.com/site_visits";
+    fetch(url)
+      .then(r => r.json())
+      .then(d => setCount(typeof d.value === "number" ? d.value : 0))
+      .catch(() => setErr("N/A"));
+  }, []);
+
+  return (
+    <Page>
+      <div className="min-h-[60vh] grid place-items-center">
+        <div className="text-center">
+          <div className="text-7xl font-bold tabular-nums">
+            {count !== null ? count : (err || "…")}
+          </div>
+          {/* nothing else; stays "secret" */}
+        </div>
+      </div>
+    </Page>
+  );
+}
+
+
 function QuizTeaser({ t }) {
   const steps = [
     t("quiz_step1", "Юрисдикция"),
@@ -2425,6 +2452,7 @@ export default function ProLegallApp() {
       "/privacy": PrivacyPage,
       "/terms": TermsPage,
       "/quiz": QuizPage,
+     "/secret": SecretPage,
     }[route] || NotFoundPage;
 
   const { lang, setLang, t } = useLang();
@@ -2442,6 +2470,20 @@ export default function ProLegallApp() {
   useEffect(() => {
     setFavicon();
   }, []);
+// In ProLegallApp(), below your other useEffects and above `return`
+useEffect(() => {
+  if (typeof window === "undefined") return; // SSR safety
+
+  // const PROD = window.location.hostname.endsWith("prolegall.com"); // adjust if needed
+  const PROD = window.location.hostname.endsWith("prolegall.com") || window.location.hostname === "localhost";
+
+  const sessionKey = "site-visit-counted";
+
+  if (PROD && sessionStorage.getItem(sessionKey) !== "1") {
+    fetch("https://api.countapi.xyz/hit/prolegall.com/site_visits").catch(() => {});
+    sessionStorage.setItem(sessionKey, "1");
+  }
+}, []);
 
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
