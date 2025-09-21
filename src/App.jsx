@@ -2432,6 +2432,7 @@ function TermsPage({ t }) {
   );
 }
 
+
 function NotFoundPage() {
   return (
     <Page>
