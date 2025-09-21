@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://prolegall.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://prolegall.com/services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://prolegall.com/about</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://prolegall.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog posts -->
+  <url><loc>https://prolegall.com/post?slug=startup-visa-lithuania</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://prolegall.com/post?slug=uae-for-eu-it</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://prolegall.com/post?slug=bahrain-holdings</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://prolegall.com/contact</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://prolegall.com/privacy</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
+  <url><loc>https://prolegall.com/terms</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
+</urlset>

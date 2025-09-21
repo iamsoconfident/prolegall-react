@@ -2,95 +2,113 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Base title/description (route-specific tags will override in React) -->
+    <title>ProLegall — Global Legal Advisory for International Structuring & Company Formation</title>
+    <meta
+      name="description"
+      content="ProLegall helps founders with international company formation, holdings, inheritance & migration across EU and the Gulf. Bank-ready, compliant structures."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111827" />
+
+    <!-- Canonical gets updated per route in React; this is a safe default -->
+    <link rel="canonical" href="https://prolegall.com/" />
+
+    <!-- Icons -->
     <link
       rel="icon"
       type="image/svg+xml"
       href="https://unpkg.com/lucide-static@0.539.0/icons/scale.svg"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Global Legal Advisory</title>
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Force only EN/RU on first paint and normalize saved value -->
+    <!-- Open Graph defaults (overridden per route in React) -->
+    <meta property="og:site_name" content="ProLegall" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ProLegall — Global Legal Advisory" />
+    <meta
+      property="og:description"
+      content="International structuring, holdings, inheritance & migration — simple and safe."
+    />
+    <meta property="og:url" content="https://prolegall.com/" />
+    <meta property="og:image" content="https://prolegall.com/og-default.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ProLegall — Global Legal Advisory" />
+    <meta
+      name="twitter:description"
+      content="International structuring, holdings, inheritance & migration — simple and safe."
+    />
+    <meta name="twitter:image" content="https://prolegall.com/og-default.jpg" />
+
+    <!-- Performance: preconnect for 3rd parties you use -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preconnect" href="https://formsubmit.co" crossorigin />
+    <link rel="dns-prefetch" href="https://api.countapi.xyz" />
+
+    <!-- Tailwind (CDN ok; for max SEO/Perf switch to compiled Tailwind in build step) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> tailwind.config = { darkMode: "class" } </script>
+
+    <!-- Force only EN/RU on first paint -->
     <script>
       (function () {
         const allowed = ["en", "ru"];
         let lang = localStorage.getItem("lang") || "en";
-        if (!allowed.includes(lang)) {
-          lang = "en";
-          localStorage.setItem("lang", lang);
-        }
+        if (!allowed.includes(lang)) { lang = "en"; localStorage.setItem("lang", lang); }
         document.documentElement.setAttribute("lang", lang);
       })();
     </script>
 
-    <script>
-      tailwind.config = { darkMode: "class" };
-    </script>
-
-    <!-- Respect user's dark preference (unchanged) -->
+    <!-- Respect user's dark preference -->
     <script>
       (function () {
         const ls = localStorage.getItem("theme");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (ls === "dark" || (!ls && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        }
+        if (ls === "dark" || (!ls && prefersDark)) document.documentElement.classList.add("dark");
       })();
     </script>
 
-    <!-- Remove LT/AZ from the selector after React mounts, and prevent switching to them -->
+    <!-- Optional: minimal Organization JSON-LD (route pages will inject richer data) -->
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"LegalService",
+        "name":"ProLegall",
+        "url":"https://prolegall.com/",
+        "logo":"https://prolegall.com/logo.png",
+        "address":{"@type":"PostalAddress","addressLocality":"Vilnius","addressCountry":"LT"},
+        "email":"info@prolegall.com",
+        "telephone":"+37061970610",
+        "sameAs":["https://www.linkedin.com/company/prolegall/"]
+      }
+    </script>
+
+    <!-- Guard language selector (EN/RU only) -->
     <script>
       (function () {
         const allowed = new Set(["en", "ru"]);
-
         function scrubLanguageSelectors(root = document) {
-          // Find your language <select> (based on aria-label/title from your component)
           const selects = root.querySelectorAll('select[aria-label="Language"], select[title="Language"]');
           selects.forEach((sel) => {
-            // Remove disallowed options (LT/AZ)
-            Array.from(sel.options).forEach((opt) => {
-              if (!allowed.has(opt.value)) opt.remove();
-            });
-
-            // If somehow current value is disallowed, snap back to a safe one
+            Array.from(sel.options).forEach((opt) => { if (!allowed.has(opt.value)) opt.remove(); });
             if (!allowed.has(sel.value)) {
-              const safe = localStorage.getItem("lang") && allowed.has(localStorage.getItem("lang"))
-                ? localStorage.getItem("lang")
-                : "en";
+              const safe = allowed.has(localStorage.getItem("lang")) ? localStorage.getItem("lang") : "en";
               sel.value = safe;
-              // Notify React about the change
               sel.dispatchEvent(new Event("change", { bubbles: true }));
             }
-
-            // Defensive: if someone tries to set a disallowed value later
-            sel.addEventListener(
-              "change",
-              (e) => {
-                if (!allowed.has(sel.value)) {
-                  const safe = localStorage.getItem("lang") && allowed.has(localStorage.getItem("lang"))
-                    ? localStorage.getItem("lang")
-                    : "en";
-                  sel.value = safe;
-                  sel.dispatchEvent(new Event("change", { bubbles: true }));
-                }
-              },
-              true
-            );
           });
         }
-
-        // Run once DOM is ready and keep watching for React re-renders
         window.addEventListener("DOMContentLoaded", () => scrubLanguageSelectors());
         const mo = new MutationObserver(() => scrubLanguageSelectors());
         mo.observe(document.documentElement, { childList: true, subtree: true });
-
-        // Also guard localStorage 'lang' in case something external sets lt/az
         const originalSetItem = localStorage.setItem;
         localStorage.setItem = function (key, value) {
-          if (key === "lang" && !allowed.has(value)) {
-            value = "en";
-          }
+          if (key === "lang" && !allowed.has(value)) value = "en";
           return originalSetItem.apply(this, [key, value]);
         };
       })();
