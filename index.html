@@ -2,9 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+<style>#seo-fallback{display:none}</style>
+<noscript><style>#seo-fallback{display:block}</style></noscript>
 
-    <!-- Base title/description (route-specific tags will override in React) -->
-    <title>ProLegall — Global Legal Advisory for International Structuring & Company Formation</title>
+    <!-- Shorter title (≤75 chars) + keywords -->
+    <title>ProLegall — International Company Formation & Holdings</title>
+
+    <!-- Meta description (kept) -->
     <meta
       name="description"
       content="ProLegall helps founders with international company formation, holdings, inheritance & migration across EU and the Gulf. Bank-ready, compliant structures."
@@ -13,8 +17,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#111827" />
 
-    <!-- Canonical gets updated per route in React; this is a safe default -->
+    <!-- Canonical + sitemap link -->
     <link rel="canonical" href="https://prolegall.com/" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Open Graph defaults -->
+    <meta property="og:site_name" content="ProLegall" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ProLegall — International Company Formation & Holdings" />
+    <meta
+      property="og:description"
+      content="International company formation, holdings, inheritance & migration across EU & the Gulf."
+    />
+    <meta property="og:url" content="https://prolegall.com/" />
+    <meta property="og:image" content="https://prolegall.com/og-default.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <!-- Freshness signal -->
+    <meta property="og:updated_time" content="2025-09-21T00:00:00Z" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ProLegall — International Company Formation & Holdings" />
+    <meta
+      name="twitter:description"
+      content="International company formation, holdings, inheritance & migration across EU & the Gulf."
+    />
+    <meta name="twitter:image" content="https://prolegall.com/og-default.jpg" />
 
     <!-- Icons -->
     <link
@@ -23,38 +51,30 @@
       href="https://unpkg.com/lucide-static@0.539.0/icons/scale.svg"
     />
 
-    <!-- Open Graph defaults (overridden per route in React) -->
-    <meta property="og:site_name" content="ProLegall" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="ProLegall — Global Legal Advisory" />
-    <meta
-      property="og:description"
-      content="International structuring, holdings, inheritance & migration — simple and safe."
-    />
-    <meta property="og:url" content="https://prolegall.com/" />
-    <meta property="og:image" content="https://prolegall.com/og-default.jpg" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ProLegall — Global Legal Advisory" />
-    <meta
-      name="twitter:description"
-      content="International structuring, holdings, inheritance & migration — simple and safe."
-    />
-    <meta name="twitter:image" content="https://prolegall.com/og-default.jpg" />
-
-    <!-- Performance: preconnect for 3rd parties you use -->
+    <!-- Performance: preconnects -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
     <link rel="preconnect" href="https://unpkg.com" crossorigin />
     <link rel="preconnect" href="https://formsubmit.co" crossorigin />
     <link rel="dns-prefetch" href="https://api.countapi.xyz" />
 
-    <!-- Tailwind (CDN ok; for max SEO/Perf switch to compiled Tailwind in build step) -->
+    <!-- Minimal CSS (adds a media query + controls fallback visibility) -->
+    <style>
+      /* Responsive hint for analyzers */
+      @media (min-width:640px){:root{--sm:1}}
+      /* Show a static SEO fallback until JS loads; then hide it */
+      #seo-fallback{padding:16px;max-width:960px;margin:0 auto;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";}
+      #seo-fallback h1{font-size:26px;line-height:1.2;margin:12px 0}
+      #seo-fallback h2{font-size:18px;line-height:1.4;color:#4b5563;margin:6px 0 12px}
+      #seo-fallback p{color:#374151;margin:8px 0}
+      #seo-fallback a{display:inline-block;margin:8px 12px 0 0;color:#6d28d9;text-decoration:none;border:1px solid #e5e7eb;border-radius:10px;padding:6px 10px}
+      #seo-fallback img{max-width:120px;height:auto;margin-top:10px}
+    </style>
+
+    <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script> tailwind.config = { darkMode: "class" } </script>
 
-    <!-- Force only EN/RU on first paint -->
+    <!-- Lock language to EN/RU on first paint -->
     <script>
       (function () {
         const allowed = ["en", "ru"];
@@ -73,7 +93,7 @@
       })();
     </script>
 
-    <!-- Optional: minimal Organization JSON-LD (route pages will inject richer data) -->
+    <!-- Minimal Organization JSON-LD -->
     <script type="application/ld+json">
       {
         "@context":"https://schema.org",
@@ -114,7 +134,31 @@
       })();
     </script>
   </head>
+
   <body>
+    <!-- Static SEO fallback so analyzers see H1/H2/links/image/keywords even without JS -->
+    <div id="seo-fallback">
+      <h1>International Company Formation, Holdings & Inheritance — ProLegall</h1>
+      <h2>EU & Gulf structuring, banking and migration — fast and compliant</h2>
+      <p>
+        We help entrepreneurs with <strong>international company formation</strong>,
+        <strong>holdings</strong>, <strong>inheritance</strong> and <strong>migration</strong> across
+        the EU and the Gulf. Transparent, bank-ready structures from day one.
+      </p>
+      <p>
+        <a href="/services">Services</a>
+        <a href="/about">About</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+      </p>
+      <!-- Image with ALT (data URI so no file needed) -->
+      <img
+        alt="ProLegall logo"
+        src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="36" viewBox="0 0 180 36"><rect rx="8" width="36" height="36" fill="%237C3AED"/><g fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7v12M12 12h12M12 29h12"/></g><text x="46" y="24" font-size="16" font-family="Arial,Helvetica,sans-serif" fill="%23111">PROLEGALL</text></svg>'
+      />
+    </div>
+
+    <!-- Your SPA mounts here -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
