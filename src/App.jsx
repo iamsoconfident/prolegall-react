@@ -1007,7 +1007,20 @@ function NotFoundPage(){
 }
 
 /* -------------------- Root App -------------------- */
+function useGA4(measurementId = "G-MD53313395") {
+  const loc = useLocation();
+  useEffect(() => {
+    if (!window.gtag) return;
+    window.gtag("config", measurementId, {
+      page_path: loc.pathname + loc.search,
+      page_title: document.title,
+      page_location: window.location.href,
+    });
+  }, [loc.pathname, loc.search, measurementId]);
+}
+
 function Shell() {
+    useGA4("G-MD53313395");
   const { lang, setLang, t } = useLang();
   const PageEl=({Comp,props})=> <Comp {...props} />;
   useEffect(()=>{const saved=localStorage.getItem("theme"); if(saved)document.documentElement.classList.toggle("dark",saved==="dark");},[]);
