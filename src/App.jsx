@@ -154,7 +154,7 @@ const I18N = {
     quiz_desc:"Ответьте на 6–8 простых вопросов и получите первичный маршрут: подходящие зоны, ориентировочные сборы и требования к substance.",quiz_step1:"Юрисдикция",quiz_step2:"Налоговая цель",quiz_step3:"Банк",quiz_step4:"Сроки",quiz_take:"Пройти тест",quiz_example:"Смотреть пример",quiz_preview:"Превью результата",quiz_suitable:"Подойдут: DMCC, IFZA",quiz_uae:"ОАЭ",quiz_fees:"Оценка сборов",quiz_fees_line:"Регистрация: $3.5–6k • Банк: 2–4 недели",quiz_req:"Требования",quiz_r1:"Substance: flex (офис по требованию)",quiz_r2:"Директор-резидент: не требуется",quiz_r3:"KYC: стандартный",quiz_get:"Получить подробный отчёт",
     cases_title:"Недавние проекты",case1_tag:"DMCC",case1_title:"Холдинг для e-commerce в ОАЭ",case1_text:"Оптимизация НДС ЕС, платёжные провайдеры, комплаенс-процедуры.",case2_tag:"Фонд",case2_title:"Семейный фонд для наследования",case2_text:"Структура владения активами в 3 странах, контроль и защита.",case3_tag:"M&A",case3_title:"Сделка по трансграничному контракту",case3_text:"Договорная база, санкционные проверки, KYC контрагента.",
     reviews_title:"Блог",
-    cta_title:"",cta_text:"",send:"Отправить",
+    cta_title:"",cta_text:"",
     footer_contacts:"Контакты",footer_nav:"Навигация",footer_legal:"Юридическое",privacy:"",terms:"Условия оказания услуг",footer_intro:"Международное структурирование компаний, планирование семейного капитала и наследства, решения для глобальной мобильности.",contacts_title:"Контакты",write_us:"Напишите нам",details_contact:"Реквизиты и связь",
   },
 };
@@ -177,18 +177,16 @@ function setJsonLd(id, data) {
 }
 function removeJsonLd(id) { const el = document.getElementById(id); if (el) el.remove(); }
 
-function SEO({ title, description, path = "/", lang = "en", type = "website", image, robots }) {
+function SEO({ title, description, path = "/", lang = "en", type = "website", image = null, robots }) {
   const loc = typeof window !== "undefined" ? window.location : { origin: "https://prolegall.com" };
   const url = (loc.origin || "https://prolegall.com") + path;
   const site = "ProLegall";
-  const img = image || (loc.origin ? `${loc.origin}/og-default.jpg` : "https://prolegall.com/og-default.jpg");
   const locale = lang === "ru" ? "ru_RU" : "en_US";
 
   useEffect(() => {
     document.title = title;
     upsertMeta("name", "description", description);
     upsertMeta("name", "robots", robots || "index,follow");
-
     upsertLink("canonical", url);
 
     // Open Graph
@@ -197,18 +195,26 @@ function SEO({ title, description, path = "/", lang = "en", type = "website", im
     upsertMeta("property", "og:type", type);
     upsertMeta("property", "og:url", url);
     upsertMeta("property", "og:site_name", site);
-    upsertMeta("property", "og:image", img);
     upsertMeta("property", "og:locale", locale);
 
-    // Twitter
+    // Twitter basics
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
-    upsertMeta("name", "twitter:image", img);
+
+    // Image (only if provided)
+    const removeIfExists = (sel) => { const el = document.head.querySelector(sel); if (el) el.remove(); };
+    if (image) {
+      upsertMeta("property", "og:image", image);
+      upsertMeta("name", "twitter:image", image);
+    } else {
+      removeIfExists('meta[property="og:image"]');
+      removeIfExists('meta[name="twitter:image"]');
+    }
   }, [title, description, path, lang, type, image, robots]);
+
   return null;
 }
-
 
 /* -------------------- UI primitives -------------------- */
 function Button({ children, variant="primary", className="", size="md", as:As="button", ...props }) {
@@ -521,7 +527,7 @@ function CasesList({ t }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-end justify-between">
           <h2 className="text-2xl sm:text-3xl font-semibold">{t("cases_title","Недавние проекты")}</h2>
-          <Button as={Link} to="/cases" variant="ghost" className="hidden md:inline-flex rounded-xl">{t("more","Все кейсы")} <ChevronRight className="ml-1 h-4 w-4"/></Button>
+          <Button as={Link} to="/blog" variant="ghost" className="hidden md:inline-flex rounded-xl">{t("more","Все кейсы")} <ChevronRight className="ml-1 h-4 w-4"/></Button>
         </div>
         <div className="mt-6 grid md:grid-cols-3 gap-4">
           {items.map((it,i)=>(
