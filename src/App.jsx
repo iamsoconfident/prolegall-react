@@ -1303,7 +1303,7 @@ function Footer({ t }) {
             <div className="font-semibold mb-3">{t("footer_contacts","Контакты")}</div>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2"><Mail className="h-4 w-4"/> info@prolegall.com</li>
-              <li className="flex items-center gap-2"><Phone className="h-4 w-4"/> WhatsApp / Telegram: +99450 5616306</li>
+              <li className="flex items-center gap-2"><Phone className="h-4 w-4"/> WhatsApp / Telegram: +994505616306</li>
               <a href="https://www.linkedin.com/company/prolegall/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:underline"><Linkedin className="h-4 w-4"/><span>LinkedIn</span></a>
               <li className="flex items-center gap-2"><MapPin className="h-4 w-4"/> {t("location_baku","Baku, Azerbaijan")}</li>
             </ul>
@@ -1711,7 +1711,7 @@ function HomePage({ t, lang }) {
       "logo":window.location.origin + "/logo.png",
       "address":{"@type":"PostalAddress","addressLocality":"Vilnius","addressCountry":"LT"},
       "email":"info@prolegall.com",
-      "telephone":"+99450 5616306",
+      "telephone":"+994505616306",
       "sameAs":["https://www.linkedin.com/company/prolegall/"]
     });
     return () => removeJsonLd("ld-org");
@@ -1931,7 +1931,7 @@ function ContactPage({ t }){
               <CardHeader><CardTitle>{t("details_contact","Реквизиты и связь")}</CardTitle></CardHeader>
               <CardContent className="text-sm text-gray-700 dark:text-gray-300 space-y-2">
                 <div className="flex items-center gap-2"><Mail className="h-4 w-4"/> info@prolegall.com</div>
-                <div className="flex items-center gap-2"><Phone className="h-4 w-4"/> +99450 5616306 (TG/WA)</div>
+                <div className="flex items-center gap-2"><Phone className="h-4 w-4"/> +994505616306 (TG/WA)</div>
                 <div className="flex items-center gap-2"><MapPin className="h-4 w-4"/> {t("location_baku","Baku, Azerbaijan")}</div>
                 <a href="https://www.linkedin.com/company/prolegall/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:underline"><Linkedin className="h-4 w-4"/><span>LinkedIn</span></a>
               </CardContent>
